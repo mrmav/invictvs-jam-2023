@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm7m3lhucxwkw"]
 
 [ext_resource type="AudioStream" uid="uid://ds0878nm2s27e" path="res://assets/sound/boxing-bell.mp3" id="1_lranu"]
-[ext_resource type="SpriteFrames" uid="uid://dpvpp7o4welai" path="res://assets/graphics/bell_sprites.tres" id="2_h7e77"]
+[ext_resource type="SpriteFrames" uid="uid://cyck6x48omywb" path="res://assets/graphics/bell_sprites.tres" id="2_h7e77"]
 
 [sub_resource type="Animation" id="Animation_g8cot"]
 length = 0.001
@@ -133,3 +133,4 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("2_h7e77")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0

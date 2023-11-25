@@ -12,6 +12,7 @@ var gameplay_arena
 
 
 func _ready():
+	Store.player_node = self
 	CounterManager.limit_reached.connect(_lose)
 	
 
