@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=12 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
 [ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
+[ext_resource type="PackedScene" uid="uid://3er6vv4y61bk" path="res://src/rival/rival.tscn" id="5_r8k2v"]
 [ext_resource type="PackedScene" uid="uid://ctxqxuy2u6ri5" path="res://assets/models/ready/Arena.tscn" id="6_jj44u"]
 
 [sub_resource type="Environment" id="Environment_1pihn"]
@@ -133,14 +134,9 @@ libraries = {
 "": SubResource("AnimationLibrary_iuc5u")
 }
 
-[node name="TheRival" type="Node3D" parent="."]
-transform = Transform3D(1.18259, 0, 0, 0, 1.18259, 0, 0, 0, 1, 0, 0.666834, 0.111721)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="TheRival"]
-texture_filter = 0
-animation = &"idle"
-autoplay = "idle"
-
 [node name="Arena" parent="." instance=ExtResource("6_jj44u")]
+
+[node name="Rival" parent="." instance=ExtResource("5_r8k2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568046, 0)
 
 [editable path="Player"]

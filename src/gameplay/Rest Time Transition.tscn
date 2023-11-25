@@ -133,3 +133,4 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("2_h7e77")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0

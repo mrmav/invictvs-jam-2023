@@ -22,6 +22,7 @@ CounterManager="*res://src/counter_system/CounterManager.gd"
 Websocket="*res://src/web_socket/websocket.gd"
 SceneLoader="*res://src/scene_loader/scene_loader.tscn"
 LedController="*res://src/web_socket/led_controller.gd"
+Store="*res://src/store/store.tscn"
 
 [display]
 
@@ -38,7 +39,7 @@ enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
 left_jab={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"echo":false,"script":null)
 ]
 }
 left_hook={
