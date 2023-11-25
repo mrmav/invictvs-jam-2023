@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjkivu3n1kfkd"]
+[gd_scene load_steps=18 format=3 uid="uid://cjkivu3n1kfkd"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
@@ -8,6 +8,58 @@
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
+[ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="9_1aa6h"]
+[ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="10_ij63s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn2n4"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sd5s"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqnqs"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o52dw"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtf3q"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op6t5"]
+atlas = ExtResource("9_1aa6h")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l017y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn2n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sd5s")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_cqnqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o52dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtf3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op6t5")
+}],
+"loop": true,
+"name": &"right_jab",
+"speed": 14.0
+}]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_205jc")
@@ -256,12 +308,24 @@ script = ExtResource("4_xif40")
 
 [node name="Left Placeholder" type="Sprite3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.082, 0, 0, 0, 0.082, -0.3, 0, 0)
+visible = false
 texture = ExtResource("5_rvue4")
 
 [node name="Right Placeholder" type="Sprite3D" parent="."]
 transform = Transform3D(0.08, 0, 0, 0, 0.082, 0, 0, 0, 0.082, 0.3, 0, 0)
+visible = false
 flip_h = true
 texture = ExtResource("5_rvue4")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.846244, 0, 0, 0, 0.846244, 0, 0, 0, 1, 0.0599111, 0.250105, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_l017y")
+animation = &"right_jab"
+autoplay = "right_jab"
+frame_progress = 0.256576
+
+[node name="Camera3D2" parent="." instance=ExtResource("10_ij63s")]
 
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Idle" to="." method="_on_idle_state_entered" binds= [true]]
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Jab" to="." method="_on_jab_state_entered" binds= [true]]
