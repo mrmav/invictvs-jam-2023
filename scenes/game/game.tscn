@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=7 format=3 uid="uid://duhu0jnsn0rjp"]
 
 [ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
 [ext_resource type="PackedScene" uid="uid://quqcply0xxdu" path="res://scenes/game/status.tscn" id="4_yafpb"]
+[ext_resource type="PackedScene" uid="uid://s2mqhmrrqkwu" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -26,3 +27,7 @@ offset_bottom = 40.0
 [node name="Status" parent="." instance=ExtResource("4_yafpb")]
 
 [node name="Rest Time Transition" parent="." instance=ExtResource("3_ebtwe")]
+
+[node name="Control" parent="." instance=ExtResource("6_7gjqt")]
+visible = false
+layout_mode = 1
