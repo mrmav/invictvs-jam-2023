@@ -1,9 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfjj00ci50tx5"]
+[gd_scene load_steps=3 format=3 uid="uid://bxxwojc8on5n6"]
 
-[ext_resource type="Texture2D" uid="uid://b13x1q1bju8q3" path="res://assets/graphics/placeholder.png" id="1_c3lbo"]
+[ext_resource type="Script" path="res://websocket.gd" id="1_5nxje"]
+[ext_resource type="Script" path="res://main.gd" id="1_d2esa"]
 
-[node name="Main" type="Node2D"]
+[node name="main" type="Node3D"]
+script = ExtResource("1_d2esa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(540, 360)
-texture = ExtResource("1_c3lbo")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -105.0
+offset_right = -128.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.83656, 7.83656)
+text = "testing"
+
+[node name="WebSocketInput" type="Node" parent="."]
+script = ExtResource("1_5nxje")
