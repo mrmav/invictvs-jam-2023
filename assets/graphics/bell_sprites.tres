@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dpvpp7o4welai"]
+
+[ext_resource type="Texture2D" uid="uid://tcy80ohits8e" path="res://assets/graphics/rest_time_bell.png" id="1_67kk0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyawj"]
+atlas = ExtResource("1_67kk0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5qkx"]
+atlas = ExtResource("1_67kk0")
+region = Rect2(0, 100, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyawj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5qkx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]

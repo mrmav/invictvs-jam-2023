@@ -8,6 +8,8 @@ const DODGE_TIME = 1
 @onready var _left_hand = $"Left Placeholder"
 @onready var _right_hand = $"Right Placeholder"
 
+var gameplay_arena
+
 
 func _ready():
 	CounterManager.limit_reached.connect(_lose)
@@ -137,6 +139,7 @@ func _on_dodging_left_state_entered():
 		dodge_timer.wait_time = DODGE_TIME
 		dodge_timer.timeout.connect(_on_dodge_timeout)
 	dodge_timer.start()
+	gameplay_arena.rotate_arena(true)
 
 
 func _on_dodging_right_state_entered():
@@ -147,6 +150,7 @@ func _on_dodging_right_state_entered():
 		dodge_timer.wait_time = DODGE_TIME
 		dodge_timer.timeout.connect(_on_dodge_timeout)
 	dodge_timer.start()
+	gameplay_arena.rotate_arena(false)
 	
 func _on_dodge_timeout():
 	_state_chart.send_event("recover")

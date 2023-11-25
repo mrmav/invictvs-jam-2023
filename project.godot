@@ -12,7 +12,7 @@ config_version=5
 
 config/name="13 Punch Man"
 config/version="0.0.1"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/Match.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/graphics/icon.png"
 
@@ -26,7 +26,6 @@ Websocket="*res://src/web_socket/websocket.gd"
 window/size/viewport_width=540
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 window/handheld/orientation=1
 
 [input]
