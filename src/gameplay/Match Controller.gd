@@ -22,7 +22,7 @@ func _on_round_timeout():
 	
 	
 
-func _round_animation_finished():
+func _round_animation_finished(_animation):
 	if round < 13:
 		CounterManager.decrease_all()
 		round += 1

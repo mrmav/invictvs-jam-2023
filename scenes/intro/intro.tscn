@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0cmt546gfj8k"]
+[gd_scene load_steps=5 format=3 uid="uid://b0cmt546gfj8k"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_adec7"]
 [ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_acie4"]
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="2_v6odb"]
+[ext_resource type="PackedScene" uid="uid://e1m426q8rmt8" path="res://scenes/intro/game_story.tscn" id="3_yqyk1"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -14,27 +15,8 @@ grow_vertical = 2
 theme = ExtResource("1_adec7")
 script = ExtResource("2_v6odb")
 
-[node name="Standby" type="Control" parent="."]
-custom_minimum_size = Vector2(540, 360)
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Standby"]
+[node name="Control" parent="." instance=ExtResource("3_yqyk1")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Standby/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Enter" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
