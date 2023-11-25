@@ -1,0 +1,320 @@
+extends SocketServiceMessage
+
+func _init():
+	id = "v1/hardware/led_strips/add_patterns"
+	payload = [
+		{
+			"id": "crocc_rcv_dmg",
+			"metadata": {
+				"dithering": false,
+				"interpolation": false,
+				"version": [
+					1,
+					0,
+					0
+				]
+			},
+			"pattern": [
+				{
+					"data": [
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						]
+					],
+					"type": "draw"
+				},
+				{
+					"data": 15,
+					"type": "wait"
+				},
+				{
+					"data": [
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						]
+					],
+					"type": "draw"
+				}
+			]
+		},
+		{
+			"id": "crocc_giv_dmg",
+			"metadata": {
+				"dithering": false,
+				"interpolation": false,
+				"version": [
+					1,
+					0,
+					0
+				]
+			},
+			"pattern": [
+				{
+					"data": [
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						],
+						[
+							"#e96858"
+						]
+					],
+					"type": "draw"
+				},
+				{
+					"data": 3,
+					"type": "wait"
+				},
+				{
+					"data": [
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						]
+					],
+					"type": "draw"
+				}
+			]
+		},
+		{
+			"id": "crocc_blk",
+			"metadata": {
+				"dithering": false,
+				"interpolation": false,
+				"version": [
+					1,
+					0,
+					0
+				]
+			},
+			"pattern": [
+				{
+					"data": [
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						],
+						[
+							"#9a7cc9"
+						]
+					],
+					"type": "draw"
+				},
+				{
+					"data": 3,
+					"type": "wait"
+				},
+				{
+					"data": [
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						],
+						[
+							"#FFFFFF"
+						]
+					],
+					"type": "draw"
+				}
+			]
+		},
+		{
+			"id": "crocc_hld",
+			"metadata": {
+				"dithering": false,
+				"interpolation": false,
+				"version": [
+					1,
+					0,
+					0
+				]
+			},
+			"pattern": [
+				{
+					"data": [
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						],
+						[
+							"#ffc75c"
+						]
+					],
+					"type": "draw"
+				}
+			]
+		},
+		{
+			"id": "crocc_reset",
+			"metadata": {
+				"dithering": false,
+				"interpolation": false,
+				"version": [
+					1,
+					0,
+					0
+				]
+			},
+			"pattern": [
+				{
+					"data": [
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						],
+						[
+							"#ffffff"
+						]
+					],
+					"type": "draw"
+				}
+			]
+		}
+	]

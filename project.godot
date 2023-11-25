@@ -21,6 +21,7 @@ config/icon="res://assets/graphics/icon.png"
 CounterManager="*res://src/counter_system/CounterManager.gd"
 Websocket="*res://src/web_socket/websocket.gd"
 SceneLoader="*res://src/scene_loader/scene_loader.tscn"
+LedController="*res://src/web_socket/led_controller.gd"
 
 [display]
 

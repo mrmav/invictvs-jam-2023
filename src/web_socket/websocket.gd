@@ -1,5 +1,9 @@
 extends Node
 
+signal socket_ready
+
+var booted = false
+
 var socket : WebSocketPeer = WebSocketPeer.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +23,11 @@ func _process(delta):
 	socket.poll()
 	var state = socket.get_ready_state()
 	if state == WebSocketPeer.STATE_OPEN:
+		
+		if not booted:
+			emit_signal("socket_ready")
+			booted = true
+		
 		while socket.get_available_packet_count():
 
 			# INPUT LOGIC:
@@ -68,3 +77,11 @@ func _process(delta):
 		print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 		set_process(false) # Stop processing.
 
+
+func send(object : Variant):
+	var json : String = JSON.stringify(object)
+	var buffer = json.to_utf8_buffer()
+	var error = socket.send_text(json)
+	if error != OK:
+		print("ERROR SENDING SOCKET MESSAGE: " + str(error))
+	
