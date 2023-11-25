@@ -11,10 +11,13 @@ const DODGE_TIME = 1
 @onready var _animation_sprites = $AnimatedSprite3D
 @onready var _animation_player : AnimationPlayer = get_node("AnimationPlayer")
 
+signal attacking(attack: Enumerators.Attacks)
+	
 var gameplay_arena
 
 
 func _ready():
+	Store.player_node = self
 	CounterManager.limit_reached.connect(_lose)
 	
 
@@ -92,6 +95,7 @@ func _on_idle_state_entered(is_right_hand):
 
 
 func _on_jab_state_entered(is_right_hand):
+	attacking.emit(Enumerators.Attacks.RIGHT_JAB if is_right_hand else Enumerators.Attacks.LEFT_JAB)
 	var hand = _get_hand(is_right_hand)
 	CounterManager.increase(_prefix("jab", is_right_hand))
 	
@@ -108,6 +112,7 @@ func _on_preparing_hook_state_entered(is_right_hand):
 
 
 func _on_hook_state_entered(is_right_hand):
+	attacking.emit(Enumerators.Attacks.RIGHT_HOOK if is_right_hand else Enumerators.Attacks.LEFT_HOOK)
 	var hand = _get_hand(is_right_hand)
 	CounterManager.increase(_prefix("hook", is_right_hand))
 	
@@ -122,6 +127,7 @@ func _on_preparing_uppercut_state_entered(is_right_hand):
 
 
 func _on_uppercut_state_entered(is_right_hand):
+	attacking.emit(Enumerators.Attacks.RIGHT_UPPERCUT if is_right_hand else Enumerators.Attacks.LEFT_UPPERCUT)
 	var hand = _get_hand(is_right_hand)
 	CounterManager.increase(_prefix("uppercut", is_right_hand))
 	

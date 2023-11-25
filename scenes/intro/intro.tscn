@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_adec7"]
 [ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_acie4"]
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="2_v6odb"]
-[ext_resource type="PackedScene" uid="uid://e1m426q8rmt8" path="res://scenes/intro/game_story.tscn" id="3_yqyk1"]
+[ext_resource type="PackedScene" path="res://scenes/intro/game_story.tscn" id="3_yqyk1"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3

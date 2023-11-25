@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjkivu3n1kfkd"]
+[gd_scene load_steps=16 format=3 uid="uid://cjkivu3n1kfkd"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="3_tgp24"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_xif40"]
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
 [ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="9_1aa6h"]
 
@@ -62,16 +61,6 @@ animations = [{
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_205jc")
-
-[node name="StateChartDebugger" parent="." instance=ExtResource("6_e2df6")]
-visible = false
-custom_minimum_size = Vector2(100, 300)
-offset_left = 71.0
-offset_top = 15.0
-offset_right = -60.0
-offset_bottom = -319.0
-enabled = false
-initial_node_to_watch = NodePath("../StateChart")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("1_vbir0")
