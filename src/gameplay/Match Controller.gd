@@ -1,7 +1,7 @@
-extends Node3D
+extends Node
 
 
-@onready var rest_time_animation = $"Rest Time Transition/AnimationPlayer"
+@onready var rest_time_animation = $"../Rest Time Transition/AnimationPlayer"
 
 var round = 1
 var round_timer = null

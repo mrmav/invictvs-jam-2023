@@ -1,124 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd0keftgqv105"]
+[gd_scene load_steps=4 format=3 uid="uid://duhu0jnsn0rjp"]
 
-[ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_s0rw5"]
-[ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_yw7na"]
+[ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
+[ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
+[ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
 
-[node name="Main" type="Control"]
+[node name="Game" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_s0rw5")
+anchors_preset = 0
 
-[node name="Standby" type="Control" parent="."]
+[node name="Match Controller" type="Node" parent="."]
+script = ExtResource("1_klbh0")
+
+[node name="Game" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="Standby"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Gameplay Arena" parent="Game" instance=ExtResource("2_km4fr")]
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Standby/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Enter" type="Control" parent="."]
+[node name="Status" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
+layout_mode = 3
 anchors_preset = 0
 offset_top = 360.0
 offset_right = 540.0
 offset_bottom = 720.0
-script = ExtResource("2_yw7na")
 
-[node name="ColorRect" type="ColorRect" parent="Enter"]
+[node name="ColorRect" type="ColorRect" parent="Status"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.619608, 0.270588, 0.435294, 1)
+color = Color(1, 0.247059, 1, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Enter/ColorRect"]
+[node name="Label" type="Label" parent="Status/ColorRect"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -11.5
+offset_right = 24.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "Status
+"
 
-[node name="Brand" type="Control" parent="Enter/ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Brand"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Brand/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.780392, 0.360784, 1)
-theme_override_font_sizes/font_size = 52
-text = "GAME"
-
-[node name="Info" type="Control" parent="Enter/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 100)
-layout_mode = 2
-
-[node name="PlayLabelContainer" type="MarginContainer" parent="Enter/ColorRect/VBoxContainer/Info"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 15.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 10
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
-text = "Press PLAY to start!"
-
-[node name="Timer" type="Timer" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label"]
-wait_time = 0.5
-autostart = true
-
-[node name="TutorialLabelContainer" type="MarginContainer" parent="Enter/ColorRect/VBoxContainer/Info"]
-custom_minimum_size = Vector2(2.08165e-12, 20)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -9.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Info/TutorialLabelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Info/TutorialLabelContainer/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
-theme_override_font_sizes/font_size = 10
-text = "Press GAME RULES for tutorial"
-
-[connection signal="timeout" from="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label/Timer" to="Enter" method="_on_timer_timeout"]
+[node name="Rest Time Transition" parent="." instance=ExtResource("3_ebtwe")]

@@ -4,7 +4,7 @@ extends Node3D
 @onready var _camera = $Player/Camera3D
 
 @onready var _enemy = $"Enemy Placeholder"
-@onready var _arena = $"Arena Placeholder"
+@onready var _arena = $Arena
 
 const rotate_speed = 6
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=10 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
 [ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
 [ext_resource type="Texture2D" uid="uid://cyt4h2217b73o" path="res://assets/graphics/default.png" id="3_kpmsf"]
 [ext_resource type="Texture2D" uid="uid://b13x1q1bju8q3" path="res://assets/graphics/placeholder.png" id="5_4ksjs"]
+[ext_resource type="PackedScene" uid="uid://ctxqxuy2u6ri5" path="res://assets/models/ready/Arena.tscn" id="6_u8i3g"]
 
 [sub_resource type="Environment" id="Environment_1pihn"]
 ambient_light_source = 2
@@ -34,9 +35,12 @@ texture = ExtResource("3_kpmsf")
 
 [node name="Arena Placeholder" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 mesh = SubResource("CylinderMesh_ccos0")
 surface_material_override/0 = SubResource("StandardMaterial3D_pxuxs")
 
 [node name="Sprite3D" type="Sprite3D" parent="Arena Placeholder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.52597)
 texture = ExtResource("5_4ksjs")
+
+[node name="Arena" parent="." instance=ExtResource("6_u8i3g")]
