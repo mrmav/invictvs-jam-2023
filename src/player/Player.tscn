@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjkivu3n1kfkd"]
+[gd_scene load_steps=17 format=3 uid="uid://cjkivu3n1kfkd"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
 [ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="9_1aa6h"]
+[ext_resource type="PackedScene" uid="uid://bkwb1ukfc1q3m" path="res://scenes/game/stand_up_counter.tscn" id="9_cvifk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mb4w5"]
 atlas = ExtResource("9_1aa6h")
@@ -70,7 +71,7 @@ script = ExtResource("1_vbir0")
 
 [node name="Root" type="Node" parent="StateChart"]
 script = ExtResource("2_b586k")
-initial_state = NodePath("Combat")
+initial_state = NodePath("Knockout")
 
 [node name="Combat" type="Node" parent="StateChart/Root"]
 script = ExtResource("3_tgp24")
@@ -314,3 +315,5 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_ksycj")
 animation = &"jab_right"
 frame_progress = 0.56462
+
+[node name="Stand Up Counter" parent="." instance=ExtResource("9_cvifk")]

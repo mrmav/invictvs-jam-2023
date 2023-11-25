@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
 [ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="4_yafpb"]
-[ext_resource type="PackedScene" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
+[ext_resource type="PackedScene" uid="uid://s2mqhmrrqkwu" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
 
 [node name="Game" type="Control"]
 layout_mode = 3

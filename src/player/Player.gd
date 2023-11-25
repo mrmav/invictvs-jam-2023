@@ -5,6 +5,8 @@ const DODGE_TIME = 1
 
 @onready var _state_chart = $StateChart
 
+@onready var _stand_up_counter = $"Stand Up Counter"
+
 @onready var _left_hand = $"Left Placeholder"
 @onready var _right_hand = $"Right Placeholder"
 
@@ -26,6 +28,7 @@ const DODGE_TIME = 1
 @onready var dodging_right: AtomicState = $"StateChart/Root/Dodging Right"
 @onready var guard: AtomicState = $StateChart/Root/Guard
 @onready var stunned: AtomicState = $StateChart/Root/Stunned
+@onready var knockout: AtomicState = $StateChart/Root/Knockout
 
 signal attacking(attack: Enumerators.Attacks)
 	
@@ -53,6 +56,9 @@ func _ready():
 	guard.state_processing.connect(_on_guard_state_processing)
 	stunned.state_entered.connect(_on_stunned_state_entered)
 	stunned.state_exited.connect(_on_stunned_state_exited)
+	knockout.state_entered.connect(_on_knockout_state_entered)
+	knockout.state_input.connect(_on_knockout_state_input)
+
 
 func _input(event):
 	# LEFT HAND CONTROLS
@@ -230,3 +236,31 @@ func _on_guard_state_entered():
 
 func _on_guard_state_processing(delta):
 	CounterManager.increase("guard", delta)
+
+
+
+#----------------------------------------
+# Knockdown
+#----------------------------------------
+var _knockout_timer
+
+func _on_knockout_state_entered():
+	CounterManager.reset("stand")
+	if _knockout_timer == null:
+		_knockout_timer = Timer.new()
+		add_child(_knockout_timer)
+		_knockout_timer.wait_time = 3
+		_knockout_timer.timeout.connect(_on_knockdown_timeout)
+	_knockout_timer.start()
+	_stand_up_counter.visible = true
+
+func _on_knockout_state_input(event):
+	if Utils.is_action_just_released(event, "stand"):
+		CounterManager.increase("stand")
+
+func _on_knockdown_timeout():
+	if CounterManager._counters.stand == 12:
+		_state_chart.send_event("recover")
+	elif CounterManager._counters.stand < 12:
+		CounterManager.increase("stand", 13 - CounterManager._counters.stand)
+
