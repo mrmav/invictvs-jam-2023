@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var reaction_timer: Timer
+
 @onready var state_chart: StateChart = $StateChart
 @onready var down_timer: Timer = $DownTimer
 
@@ -8,6 +10,9 @@ var is_upper_blocking: bool = false
 var last_blows_buffer: Array[Enumerators.Attacks] = []
 var prioritize_upper_defense: bool = false
 var prioritize_lower_defense: bool = false
+var player_is_preparing_uppercut: bool = false
+var player_is_preparing_hook: bool = false
+
 
 func _physics_process(delta):
 	if last_blows_buffer.size() >= 4:
@@ -33,6 +38,7 @@ func _on_knocked_tree_state_state_entered():
 	
 
 func _ready() -> void:
+	Store.rival_node = self
 	down_timer.timeout.connect(on_down_timer_timeout)
 	match(Store.dificulty):
 		1:
@@ -42,6 +48,7 @@ func _ready() -> void:
 	else:
 		on_player_node_defined()
 	Store.rival_health_updated.connect(on_rival_health_updated)
+
 
 func _exit_tree():
 	if Store.player_node_defined.is_connected(on_player_node_defined):
@@ -54,8 +61,12 @@ func on_player_node_defined() -> void:
 	if Store.player_node_defined.is_connected(on_player_node_defined):
 		Store.player_node_defined.disconnect(on_player_node_defined)
 	Store.player_node.attacking.connect(on_player_attacking)
+	Store.player_node.preparing_uppercut.connect(on_player_prepare_uppercut)
+	Store.player_node.preparing_hook.connect(on_player_prepare_hook)
 	
 func on_player_attacking(attack: Enumerators.Attacks) -> void:
+	player_is_preparing_uppercut = false
+	player_is_preparing_hook = false
 	match(attack):
 		Enumerators.Attacks.LEFT_JAB, Enumerators.Attacks.RIGHT_JAB:
 			if not is_upper_blocking:
@@ -72,6 +83,13 @@ func on_player_attacking(attack: Enumerators.Attacks) -> void:
 				state_chart.send_event("hurt_by_uppercut")
 				last_blows_buffer.append(Enumerators.Attacks.LEFT_UPPERCUT)
 				Store.rival_health -= 10
+
+
+func on_player_prepare_uppercut():
+	player_is_preparing_uppercut = true
+
+func on_player_prepare_hook():
+	player_is_preparing_hook = true
 
 
 func on_rival_health_updated(value: int) -> void:
@@ -158,3 +176,91 @@ func on_right_uppercut() -> void:
 
 func on_left_uppercut() -> void:
 	state_chart.send_event("idle")
+
+
+
+# --------------------------------------
+# Idle Reaction Timer
+# --------------------------------------
+var defense_time = 0.0
+var attack_time = 0.0
+
+const DEFENSE_TIME = 1.0
+const ATTACK_TIME = 2.0
+const VARIATION = 0.2
+
+func _on_idle_tree_state_state_entered():
+	defense_time = DEFENSE_TIME + randf_range(0.0, 0.2)
+	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
+	
+
+func _on_idle_tree_state_state_process(delta):
+	defense_time -= delta
+	attack_time -= delta
+	
+	if defense_time <= 0.0:
+		_on_idle_handle_defense()
+		attack_time += VARIATION
+	
+	if attack_time <= 0.0:
+		_on_idle_handle_attack()
+		defense_time += VARIATION
+	
+	
+
+func _on_idle_handle_defense():
+	defense_time = DEFENSE_TIME + randf_range(0.0, 0.2)
+	
+	var rand = randi() % 100
+	if player_is_preparing_hook and player_is_preparing_uppercut:
+		if rand < 10:
+			state_chart.send_event("lower_block")
+		if rand < 20:
+			state_chart.send_event("upper_block")
+		elif rand < 60:
+			state_chart.send_event("left_jab_charge")
+		elif rand < 100:
+			state_chart.send_event("right_jab_charge")
+	elif player_is_preparing_hook:
+		if rand < 60:
+			state_chart.send_event("lower_block")
+		elif rand < 75:
+			state_chart.send_event("left_jab_charge")
+		elif rand < 90:
+			state_chart.send_event("right_jab_charge")
+		else:
+			return
+	elif player_is_preparing_uppercut:
+		if rand < 60:
+			state_chart.send_event("upper_block")
+		elif rand < 75:
+			state_chart.send_event("left_jab_charge")
+		elif rand < 90:
+			state_chart.send_event("right_jab_charge")
+		else:
+			return
+		
+
+func _on_idle_handle_attack():
+	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
+	
+	var rand = randi() % 100
+	if rand < 5:
+		state_chart.send_event("lower_block")
+	if rand < 15:
+		state_chart.send_event("upper_block")
+	elif rand < 25:
+		state_chart.send_event("left_jab_charge")
+	elif rand < 35:
+		state_chart.send_event("right_jab_charge")
+	elif rand < 45:
+		state_chart.send_event("left_hook_charge")
+	elif rand < 55:
+		state_chart.send_event("right_hook_charge")
+	elif rand < 65:
+		state_chart.send_event("left_uppercut_charge")
+	elif rand < 75:
+		state_chart.send_event("right_uppercut_charge")
+	else:
+		return
+

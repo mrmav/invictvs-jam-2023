@@ -34,6 +34,8 @@ const DODGE_TIME = 1
 signal attacking(attack: Enumerators.Attacks)
 signal gave_damage
 signal received_damage
+signal preparing_hook()
+signal preparing_uppercut()
 	
 var gameplay_arena
 
@@ -172,6 +174,7 @@ func _on_preparing_hook_state_entered(is_right_hand):
 	sprites.play("hook_anticipation")
 	# if time: implement camera movement
 	#_animation_player.play("upper_cut_anticipation")
+	preparing_hook.emit()
 
 	await sprites.animation_finished
 	
@@ -199,6 +202,7 @@ func _on_preparing_uppercut_state_entered(is_right_hand):
 	_animation_player.play("upper_cut_anticipation")
 	
 	LEDPatternTriggerer.trigger("crocc_hld")
+	preparing_uppercut.emit()
 	
 	await sprites.animation_finished
 	
