@@ -8,16 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
-[ext_resource type="Script" path="res://websocket.gd" id="9_m1ivu"]
+[ext_resource type="Script" path="res://src/web_socket/websocket.gd" id="9_fccge"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_205jc")
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_e2df6")]
 custom_minimum_size = Vector2(100, 300)
-offset_left = 300.0
+offset_left = 71.0
 offset_top = 15.0
-offset_right = -309.0
+offset_right = -60.0
 offset_bottom = -319.0
 initial_node_to_watch = NodePath("../StateChart")
 
@@ -266,7 +266,7 @@ texture = ExtResource("5_rvue4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.944246)
 
 [node name="WebSocketInput" type="Node" parent="."]
-script = ExtResource("9_m1ivu")
+script = ExtResource("9_fccge")
 
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Idle" to="." method="_on_idle_state_entered" binds= [true]]
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Jab" to="." method="_on_jab_state_entered" binds= [true]]
