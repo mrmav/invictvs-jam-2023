@@ -140,15 +140,16 @@ func _on_idle_state_entered(is_right_hand):
 
 func _on_jab_state_entered(is_right_hand):
 	attacking.emit(Enumerators.Attacks.RIGHT_JAB if is_right_hand else Enumerators.Attacks.LEFT_JAB)
-	var hand = _get_hand(is_right_hand)
 	CounterManager.increase(_prefix("jab", is_right_hand))
 	
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+			
 	# To susbstitute by animation
-	_animation_sprites_right.play("jab_right")
+	sprites.play("jab_right")
 	_animation_player.play("jab")
 	LEDPatternTriggerer.trigger("crocc_giv_dmg")
 	
-	await _animation_sprites_right.animation_finished
+	await sprites.animation_finished
 	
 	_attack_finished(is_right_hand)
 
@@ -168,9 +169,17 @@ func _on_hook_state_entered(is_right_hand):
 	_attack_finished(is_right_hand)
 
 
-func _on_preparing_uppercut_state_entered(is_right_hand):
-	var hand = _get_hand(is_right_hand)
-
+func _on_preparing_uppercut_state_entered(is_right_hand):	
+	
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+	
+	sprites.play("upper_cut_anticipation")
+	_animation_player.play("upper_cut_anticipation")
+	
+	LEDPatternTriggerer.trigger("crocc_hld")
+	
+	await sprites.animation_finished
+	
 
 func _on_uppercut_state_entered(is_right_hand):
 	attacking.emit(Enumerators.Attacks.RIGHT_UPPERCUT if is_right_hand else Enumerators.Attacks.LEFT_UPPERCUT)
@@ -178,7 +187,15 @@ func _on_uppercut_state_entered(is_right_hand):
 	CounterManager.increase(_prefix("uppercut", is_right_hand))
 	
 	# To susbstitute by animation
-	await get_tree().create_timer(0.5).timeout
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+	
+	sprites.play("upper_cut")
+	_animation_player.play("upper_cut")
+	
+	LEDPatternTriggerer.trigger("crocc_reset")
+	
+	
+	await sprites.animation_finished
 	
 	_attack_finished(is_right_hand)
 

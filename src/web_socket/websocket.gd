@@ -29,13 +29,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	socket.poll()
 	var state = socket.get_ready_state()
 	if state == WebSocketPeer.STATE_OPEN:
 		
 		if not booted:
 			emit_signal("socket_ready")
+			print("SOCKET STATE OPEN")
 			booted = true
 		
 		while socket.get_available_packet_count():
@@ -92,7 +93,6 @@ func _process(delta):
 
 func send(object : Variant):
 	var json : String = JSON.stringify(object)
-	var buffer = json.to_utf8_buffer()
 	var error = socket.send_text(json)
 	if error != OK:
 		print("ERROR SENDING SOCKET MESSAGE: " + str(error))
