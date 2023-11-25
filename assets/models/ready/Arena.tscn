@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7xvcfegud75y"]
+
+[ext_resource type="PackedScene" uid="uid://b2r1trjotbpke" path="res://assets/models/base/ring.gltf" id="1_e57o6"]
+
+[node name="Arena" type="Node3D"]
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_e57o6")]
