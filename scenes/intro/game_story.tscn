@@ -60,10 +60,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -190.0
-offset_top = -337.545
-offset_right = 210.0
-offset_bottom = 870.455
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 1208.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 alignment = 1
@@ -75,7 +74,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "In a dystopian future dominated by the ruthless AI, humanity is enslaved and forced to participate in a twisted game called the \"13 Rounds\" .
+text = "In a dystopian future dominated by the ruthless AI, humanity is enslaved and forced to participate in a twisted game called the \"13 Rounds\".
 
 
 In this game, human participants, colloquially called the 13 Punch Men must engage in a boxing-like competition against powerfull android, with the caveat that no action can be repeated more than 13 times.

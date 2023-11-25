@@ -142,8 +142,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 2260.0
-offset_bottom = 2880.0
+offset_bottom = 0.000244141
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uwqbf")
@@ -151,7 +150,7 @@ script = ExtResource("2_fh6wb")
 
 [node name="ScrollContainer" type="Control" parent="."]
 clip_contents = true
-custom_minimum_size = Vector2(540, 360)
+custom_minimum_size = Vector2(640, 360)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -167,10 +166,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="ScrollContainer"]
 layout_mode = 0
-offset_left = 125.0
-offset_top = 143.0
-offset_right = 401.0
-offset_bottom = 179.0
+offset_left = 189.0
+offset_top = 139.0
+offset_right = 465.0
+offset_bottom = 175.0
 rotation = -0.200713
 pivot_offset = Vector2(138, 18)
 theme_override_colors/font_color = Color(0.886275, 0.121569, 0.309804, 1)
@@ -181,10 +180,10 @@ uppercase = true
 
 [node name="Label2" type="Label" parent="ScrollContainer"]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 194.0
-offset_right = 274.0
-offset_bottom = 209.0
+offset_left = 291.0
+offset_top = 196.0
+offset_right = 331.0
+offset_bottom = 218.0
 theme_override_font_sizes/font_size = 25
 text = "Too many
 left jabs"
