@@ -22,5 +22,10 @@ CounterManager="*res://src/counter system/CounterManager.gd"
 
 [display]
 
-window/size/viewport_width=1080
+window/size/viewport_width=540
 window/size/viewport_height=720
+window/size/mode=3
+window/size/initial_position_type=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/handheld/orientation=1
