@@ -1,0 +1,288 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjkivu3n1kfkd"]
+
+[ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_b586k"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/parallel_state.gd" id="3_tgp24"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_xif40"]
+[ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
+[ext_resource type="Script" path="res://src/web_socket/websocket.gd" id="9_fccge"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_205jc")
+
+[node name="StateChartDebugger" parent="." instance=ExtResource("6_e2df6")]
+custom_minimum_size = Vector2(100, 300)
+offset_left = 71.0
+offset_top = 15.0
+offset_right = -60.0
+offset_bottom = -319.0
+initial_node_to_watch = NodePath("../StateChart")
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("1_vbir0")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("2_b586k")
+initial_state = NodePath("Combat")
+
+[node name="Combat" type="Node" parent="StateChart/Root"]
+script = ExtResource("3_tgp24")
+
+[node name="Right Hand" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("2_b586k")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Jab" type="Node" parent="StateChart/Root/Combat/Right Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Jab")
+event = &"right_jab"
+
+[node name="To Preparing Hook" type="Node" parent="StateChart/Root/Combat/Right Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Preparing Hook")
+event = &"right_prepare_hook"
+
+[node name="To Preparing Uppercut" type="Node" parent="StateChart/Root/Combat/Right Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Preparing Uppercut")
+event = &"right_prepare_uppercut"
+
+[node name="Jab" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Right Hand/Jab"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"right_attack_finished"
+
+[node name="Preparing Hook" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Hook" type="Node" parent="StateChart/Root/Combat/Right Hand/Preparing Hook"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Hook")
+event = &"right_hook"
+
+[node name="Hook" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Right Hand/Hook"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"right_attack_finished"
+
+[node name="Preparing Uppercut" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Uppercut" type="Node" parent="StateChart/Root/Combat/Right Hand/Preparing Uppercut"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Uppercut")
+event = &"right_uppercut"
+
+[node name="Uppercut" type="Node" parent="StateChart/Root/Combat/Right Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Right Hand/Uppercut"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"right_attack_finished"
+
+[node name="Left Hand" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("2_b586k")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Jab" type="Node" parent="StateChart/Root/Combat/Left Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Jab")
+event = &"left_jab"
+
+[node name="To Preparing Hook" type="Node" parent="StateChart/Root/Combat/Left Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Preparing Hook")
+event = &"left_prepare_hook"
+
+[node name="To Preparing Uppercut" type="Node" parent="StateChart/Root/Combat/Left Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Preparing Uppercut")
+event = &"left_prepare_uppercut"
+
+[node name="Jab" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Left Hand/Jab"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"left_attack_finished"
+
+[node name="Preparing Hook" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Hook" type="Node" parent="StateChart/Root/Combat/Left Hand/Preparing Hook"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Hook")
+event = &"left_hook"
+
+[node name="Hook" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Left Hand/Hook"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"left_attack_finished"
+
+[node name="Preparing Uppercut" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Uppercut" type="Node" parent="StateChart/Root/Combat/Left Hand/Preparing Uppercut"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Uppercut")
+event = &"left_uppercut"
+
+[node name="Uppercut" type="Node" parent="StateChart/Root/Combat/Left Hand"]
+script = ExtResource("4_xif40")
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Combat/Left Hand/Uppercut"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Idle")
+event = &"left_attack_finished"
+
+[node name="To Dodging Left" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Dodging Left")
+event = &"dodge_left"
+
+[node name="To Dodging Right" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Dodging Right")
+event = &"dodge_right"
+
+[node name="To Stunned" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Stunned")
+event = &"stun"
+
+[node name="To Knockout" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Knockout")
+event = &"knockout"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Combat"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Dodging Left" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="To Combat" type="Node" parent="StateChart/Root/Dodging Left"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat")
+event = &"recover"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Dodging Left"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Dodging Right" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="To Combat" type="Node" parent="StateChart/Root/Dodging Right"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat")
+event = &"recover"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Dodging Right"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Guard" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="To Combat" type="Node" parent="StateChart/Root/Guard"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat")
+event = &"recover"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Guard"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Stunned" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="To Combat" type="Node" parent="StateChart/Root/Stunned"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat")
+event = &"recover"
+
+[node name="To Knockout" type="Node" parent="StateChart/Root/Stunned"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Knockout")
+event = &"knockout"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Stunned"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Knockout" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="To Combat" type="Node" parent="StateChart/Root/Knockout"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat")
+event = &"recover"
+
+[node name="To Lost" type="Node" parent="StateChart/Root/Knockout"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Lost")
+event = &"lose"
+
+[node name="Lost" type="Node" parent="StateChart/Root"]
+script = ExtResource("4_xif40")
+
+[node name="Left Placeholder" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.152, 0, 0, 0, 0.152, -0.5, -0.5, 0)
+texture = ExtResource("5_rvue4")
+
+[node name="Right Placeholder" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.152, 0, 0, 0, 0.152, 0.5, -0.5, 0)
+flip_h = true
+texture = ExtResource("5_rvue4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.944246)
+
+[node name="WebSocketInput" type="Node" parent="."]
+script = ExtResource("9_fccge")
+
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Idle" to="." method="_on_idle_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Jab" to="." method="_on_jab_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Preparing Hook" to="." method="_on_preparing_hook_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Hook" to="." method="_on_hook_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Preparing Uppercut" to="." method="_on_preparing_uppercut_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Uppercut" to="." method="_on_uppercut_state_entered" binds= [true]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Idle" to="." method="_on_idle_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Jab" to="." method="_on_jab_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Preparing Hook" to="." method="_on_preparing_hook_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Hook" to="." method="_on_hook_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Preparing Uppercut" to="." method="_on_preparing_uppercut_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Combat/Left Hand/Uppercut" to="." method="_on_uppercut_state_entered" binds= [false]]
+[connection signal="state_entered" from="StateChart/Root/Dodging Left" to="." method="_on_dodging_left_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Dodging Right" to="." method="_on_dodging_right_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Guard" to="." method="_on_guard_state_entered"]
+[connection signal="state_processing" from="StateChart/Root/Guard" to="." method="_on_guard_state_processing"]
+[connection signal="state_entered" from="StateChart/Root/Stunned" to="." method="_on_stunned_state_entered"]
+[connection signal="state_exited" from="StateChart/Root/Stunned" to="." method="_on_stunned_state_exited"]
