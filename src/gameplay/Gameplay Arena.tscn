@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=13 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
@@ -52,6 +52,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_fc2a7"]
 resource_name = "dodge_left"
+length = 0.16
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,14 +61,16 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.368752, 0, 0), Vector3(-0.321252, -0.215979, 0.301464)]
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.321252, -0.417931, 0.301464), Vector3(-0.368752, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_anqd8"]
 resource_name = "dodge_right"
+length = 0.16
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,10 +78,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.368752, 0, 0), Vector3(-0.338094, 0.218743, -0.170213)]
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.338094, 0.361424, -0.170213), Vector3(-0.368752, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_jplx1"]
@@ -109,11 +113,29 @@ tracks/1/keys = {
 "values": [75.0, 70.0, 75.0]
 }
 
+[sub_resource type="Animation" id="Animation_ryoym"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(0, 0.62, 0.733), Vector3(0, 0.638919, 0.732631)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iuc5u"]
 _data = {
 "RESET": SubResource("Animation_nipuv"),
 "dodge_left": SubResource("Animation_fc2a7"),
 "dodge_right": SubResource("Animation_anqd8"),
+"idle": SubResource("Animation_ryoym"),
 "jab": SubResource("Animation_jplx1")
 }
 
@@ -125,6 +147,12 @@ environment = SubResource("Environment_1pihn")
 
 [node name="Player" parent="." instance=ExtResource("1_ddycb")]
 transform = Transform3D(1, 0, 0, 0, 0.932778, 0.360452, 0, -0.360452, 0.932778, 0, 0.638919, 0.732631)
+
+[node name="RightAnimatedSprite3D" parent="Player" index="3"]
+transform = Transform3D(0.845712, 0, -0.0354402, 9.31323e-10, 0.846244, 5.96046e-08, 0.0299911, -2.98023e-08, 0.999372, 0.123849, 0.250105, 0.0210127)
+
+[node name="LeftAnimatedSprite3D" parent="Player" index="4"]
+transform = Transform3D(0.845827, 0, 0.0313933, -9.31323e-10, 0.846244, 2.98023e-08, -0.0265664, -2.98023e-08, 0.999507, -0.162507, 0.250105, -0.0223575)
 
 [node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
 

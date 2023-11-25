@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://3cbjx8hfgai1"]
+
+[ext_resource type="Texture2D" uid="uid://cy7p7od2dga5x" path="res://assets/graphics/T_Player_Idle.png" id="1_kfkdj"]
+[ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="2_01jec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myunn"]
+atlas = ExtResource("1_kfkdj")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo12p"]
+atlas = ExtResource("1_kfkdj")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg5xi"]
+atlas = ExtResource("1_kfkdj")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxwmf"]
+atlas = ExtResource("1_kfkdj")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14j08"]
+atlas = ExtResource("1_kfkdj")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb4w5"]
+atlas = ExtResource("2_01jec")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4b52"]
+atlas = ExtResource("2_01jec")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4xmn"]
+atlas = ExtResource("2_01jec")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0s6m"]
+atlas = ExtResource("2_01jec")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g8nr"]
+atlas = ExtResource("2_01jec")
+region = Rect2(512, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_707xs"]
+atlas = ExtResource("2_01jec")
+region = Rect2(640, 0, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksycj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myunn")
+}],
+"loop": false,
+"name": &"block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo12p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg5xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxwmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14j08")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb4w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4b52")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_f4xmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0s6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g8nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_707xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb4w5")
+}],
+"loop": false,
+"name": &"jab_right",
+"speed": 26.0
+}]
+
+[node name="RightAnimatedSprite3D" type="AnimatedSprite3D"]
+transform = Transform3D(0.845712, 0, -0.0354402, 0, 0.846244, 0, 0.0299911, 0, 0.999372, 0.0599111, 0.250105, 0.0210127)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_ksycj")
+animation = &"block"

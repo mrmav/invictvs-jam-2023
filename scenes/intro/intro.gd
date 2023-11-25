@@ -2,7 +2,7 @@ extends Control
 
 func _enter_tree():
 	if not Websocket.booted:
-		await Websocket.socket_ready		
+		await Websocket.socket_ready
 	BlinkPatternTriggerer.trigger("croccantini", "light_tower_red")
 
 func _input(event):
