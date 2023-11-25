@@ -2,6 +2,8 @@ extends Node
 
 signal limit_reached(id:String)
 
+const COUNTER_LIMIT = 13
+
 var _counters = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -9,11 +11,12 @@ func _ready():
 	_register("left_jab")
 	_register("left_hook")
 	_register("left_uppercut")
-	_register("left_dodge")
+	_register("dodge_left")
 	_register("right_jab")
 	_register("right_hook")
 	_register("right_uppercut")
-	_register("right_dodge")
+	_register("dodge_right")
+	_register("guard", true)
 
 
 # Registers new counter
@@ -25,7 +28,8 @@ func _register(id: String, is_float = false):
 # Increases a counter
 func increase(id: String, value = 1):
 	_counters[id] += value
-	emit_signal(id)
+	if _counters[id] >= COUNTER_LIMIT:
+		limit_reached.emit(id)
 
 
 # Decreases a counter
