@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=11 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
 [ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
-[ext_resource type="Texture2D" uid="uid://dhs3eag13g2ll" path="res://assets/graphics/enemy_Idle.png" id="4_q24ie"]
-[ext_resource type="PackedScene" uid="uid://b7xvcfegud75y" path="res://assets/models/ready/Arena.tscn" id="6_jj44u"]
+[ext_resource type="PackedScene" uid="uid://ctxqxuy2u6ri5" path="res://assets/models/ready/Arena.tscn" id="6_jj44u"]
 
 [sub_resource type="Environment" id="Environment_1pihn"]
 ambient_light_source = 2
@@ -117,56 +116,6 @@ _data = {
 "jab": SubResource("Animation_jplx1")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8qdu"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(0, 0, 53, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hj2x"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(53, 0, 53, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_82gw6"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(106, 0, 53, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5ppl"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(159, 0, 53, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh35f"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(212, 0, 53, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1gg5"]
-atlas = ExtResource("4_q24ie")
-region = Rect2(265, 0, 53, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ldrka"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8qdu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4hj2x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_82gw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5ppl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fh35f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q1gg5")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
 [node name="Gameplay Arena" type="Node3D"]
 script = ExtResource("1_w7wru")
 
@@ -189,10 +138,8 @@ transform = Transform3D(1.18259, 0, 0, 0, 1.18259, 0, 0, 0, 1, 0, 0.666834, 0.11
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="TheRival"]
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_ldrka")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.228693
 
 [node name="Arena" parent="." instance=ExtResource("6_jj44u")]
 
