@@ -10,7 +10,8 @@ const DODGE_TIME = 1
 @onready var _left_hand = $"Left Placeholder"
 @onready var _right_hand = $"Right Placeholder"
 
-@onready var _animation_sprites = $AnimatedSprite3D
+@onready var _animation_sprites_right = $RightAnimatedSprite3D
+@onready var _animation_sprites_left = $LeftAnimatedSprite3D
 @onready var _animation_player : AnimationPlayer = get_node("AnimationPlayer")
 @onready var right_hand_idle_state: AtomicState = $"StateChart/Root/Combat/Right Hand/Idle"
 @onready var right_hand_jab_state: AtomicState = $"StateChart/Root/Combat/Right Hand/Jab"
@@ -131,7 +132,11 @@ func _attack_finished(is_right_hand):
 
 func _on_idle_state_entered(is_right_hand):
 	var hand = _get_hand(is_right_hand)
-
+	
+	_animation_sprites_right.play("idle")
+	_animation_sprites_left.play("idle")
+	_animation_player.play("idle")
+	
 
 func _on_jab_state_entered(is_right_hand):
 	attacking.emit(Enumerators.Attacks.RIGHT_JAB if is_right_hand else Enumerators.Attacks.LEFT_JAB)
@@ -139,9 +144,11 @@ func _on_jab_state_entered(is_right_hand):
 	CounterManager.increase(_prefix("jab", is_right_hand))
 	
 	# To susbstitute by animation
-	_animation_sprites.play("jab_right")
+	_animation_sprites_right.play("jab_right")
 	_animation_player.play("jab")
 	LEDPatternTriggerer.trigger("crocc_giv_dmg")
+	
+	await _animation_sprites_right.animation_finished
 	
 	_attack_finished(is_right_hand)
 
@@ -183,24 +190,27 @@ func _on_uppercut_state_entered(is_right_hand):
 var dodge_timer = null
 func _on_dodging_left_state_entered():
 	CounterManager.increase("dodge_left")
-	if dodge_timer == null:
-		dodge_timer = Timer.new()
-		add_child(dodge_timer)
-		dodge_timer.wait_time = DODGE_TIME
-		dodge_timer.timeout.connect(_on_dodge_timeout)
-	dodge_timer.start()
 	gameplay_arena.rotate_arena(true)
+	
+	_animation_sprites_right.play("block")
+	_animation_sprites_left.play("block")
+	_animation_player.play("dodge_left", -1, 1, false)
+	
+	await _animation_player.animation_finished
+	_on_dodge_timeout()
 
 
 func _on_dodging_right_state_entered():
 	CounterManager.increase("dodge_right")
-	if dodge_timer == null:
-		dodge_timer = Timer.new()
-		add_child(dodge_timer)
-		dodge_timer.wait_time = DODGE_TIME
-		dodge_timer.timeout.connect(_on_dodge_timeout)
-	dodge_timer.start()
 	gameplay_arena.rotate_arena(false)
+	
+	_animation_sprites_right.play("block")
+	_animation_sprites_left.play("block")
+	_animation_player.play("dodge_right")
+	
+	await _animation_player.animation_finished
+	_on_dodge_timeout()
+	
 	
 func _on_dodge_timeout():
 	_state_chart.send_event("recover")
