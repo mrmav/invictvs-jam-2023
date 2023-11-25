@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctxqxuy2u6ri5"]
+[gd_scene load_steps=10 format=3 uid="uid://b7xvcfegud75y"]
 
 [ext_resource type="PackedScene" uid="uid://b2r1trjotbpke" path="res://assets/models/base/ring.gltf" id="1_w4ypf"]
 [ext_resource type="Texture2D" uid="uid://b5dex84txbvuq" path="res://assets/models/base/ring_0.png" id="2_e6sv3"]

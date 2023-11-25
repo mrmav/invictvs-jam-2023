@@ -22,6 +22,7 @@ CounterManager="*res://src/counter_system/CounterManager.gd"
 Websocket="*res://src/web_socket/websocket.gd"
 SceneLoader="*res://src/scene_loader/scene_loader.tscn"
 LedController="*res://src/web_socket/led_controller.gd"
+Store="*res://src/store/store.tscn"
 
 [display]
 
@@ -29,6 +30,10 @@ window/size/viewport_width=540
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
 [input]
 
