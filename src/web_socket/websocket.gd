@@ -8,7 +8,17 @@ var socket : WebSocketPeer = WebSocketPeer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var error = socket.connect_to_url("ws://192.168.220.109:3333")
+	
+	#load config
+	var cfg = ConfigFile.new()
+	var err = cfg.load("res://config.cfg")
+	
+	if err != OK:
+		print("COULD NOT READ CONFIG FILE")
+		
+	var ip = cfg.get_value("socket", "ip")
+	
+	var error = socket.connect_to_url(ip)
 
 	if error != OK:
 		printerr("SOCKET COULD NOT CONNECT")
