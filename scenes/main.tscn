@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfjj00ci50tx5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gcpnx"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game" type="Control" parent="."]
+custom_minimum_size = Vector2(540, 360)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node3D" type="Node3D" parent="Game"]
+
+[node name="Camera3D" type="Camera3D" parent="Game/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.01403)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Game/Node3D"]
+mesh = SubResource("CylinderMesh_gcpnx")
+
+[node name="Status" type="Control" parent="."]
+custom_minimum_size = Vector2(540, 360)
+anchors_preset = 0
+offset_top = 360.0
+offset_right = 540.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="Status"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.247059, 1, 1)
+
+[node name="Label" type="Label" parent="Status/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -11.5
+offset_right = 24.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Status
+"
