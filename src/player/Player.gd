@@ -10,6 +10,22 @@ const DODGE_TIME = 1
 
 @onready var _animation_sprites = $AnimatedSprite3D
 @onready var _animation_player : AnimationPlayer = get_node("AnimationPlayer")
+@onready var right_hand_idle_state: AtomicState = $"StateChart/Root/Combat/Right Hand/Idle"
+@onready var right_hand_jab_state: AtomicState = $"StateChart/Root/Combat/Right Hand/Jab"
+@onready var right_hand_preparing_hook: AtomicState = $"StateChart/Root/Combat/Right Hand/Preparing Hook"
+@onready var right_hand_hook: AtomicState = $"StateChart/Root/Combat/Right Hand/Hook"
+@onready var right_hand_preparing_uppercut: AtomicState = $"StateChart/Root/Combat/Right Hand/Preparing Uppercut"
+@onready var right_hand_uppercut: AtomicState = $"StateChart/Root/Combat/Right Hand/Uppercut"
+@onready var left_hand_idle_state: AtomicState = $"StateChart/Root/Combat/Left Hand/Idle"
+@onready var left_hand_jab_state: AtomicState = $"StateChart/Root/Combat/Left Hand/Jab"
+@onready var left_hand_preparing_hook: AtomicState = $"StateChart/Root/Combat/Left Hand/Preparing Hook"
+@onready var left_hand_hook: AtomicState = $"StateChart/Root/Combat/Left Hand/Hook"
+@onready var left_hand_preparing_uppercut: AtomicState = $"StateChart/Root/Combat/Left Hand/Preparing Uppercut"
+@onready var left_hand_uppercut: AtomicState = $"StateChart/Root/Combat/Left Hand/Uppercut"
+@onready var dodging_left: AtomicState = $"StateChart/Root/Dodging Left"
+@onready var dodging_right: AtomicState = $"StateChart/Root/Dodging Right"
+@onready var guard: AtomicState = $StateChart/Root/Guard
+@onready var stunned: AtomicState = $StateChart/Root/Stunned
 
 signal attacking(attack: Enumerators.Attacks)
 	
@@ -19,7 +35,24 @@ var gameplay_arena
 func _ready():
 	Store.player_node = self
 	CounterManager.limit_reached.connect(_lose)
-	
+	right_hand_idle_state.state_entered.connect(_on_idle_state_entered.bind(true))
+	right_hand_jab_state.state_entered.connect(_on_jab_state_entered.bind(true))
+	right_hand_preparing_hook.state_entered.connect(_on_preparing_hook_state_entered.bind(true))
+	right_hand_hook.state_entered.connect(_on_hook_state_entered.bind(true))
+	right_hand_preparing_uppercut.state_entered.connect(_on_preparing_uppercut_state_entered.bind(true))
+	right_hand_uppercut.state_entered.connect(_on_uppercut_state_entered.bind(true))
+	left_hand_idle_state.state_entered.connect(_on_idle_state_entered.bind(false))
+	left_hand_jab_state.state_entered.connect(_on_jab_state_entered.bind(false))
+	left_hand_preparing_hook.state_entered.connect(_on_preparing_hook_state_entered.bind(false))
+	left_hand_hook.state_entered.connect(_on_hook_state_entered.bind(false))
+	left_hand_preparing_uppercut.state_entered.connect(_on_preparing_uppercut_state_entered.bind(false))
+	left_hand_uppercut.state_entered.connect(_on_uppercut_state_entered.bind(false))
+	dodging_left.state_entered.connect(_on_dodging_left_state_entered)
+	dodging_right.state_entered.connect(_on_dodging_right_state_entered)
+	guard.state_entered.connect(_on_guard_state_entered)
+	guard.state_processing.connect(_on_guard_state_processing)
+	stunned.state_entered.connect(_on_stunned_state_entered)
+	stunned.state_exited.connect(_on_stunned_state_exited)
 
 func _input(event):
 	# LEFT HAND CONTROLS
