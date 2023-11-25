@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=4 format=3 uid="uid://duhu0jnsn0rjp"]
 
+[ext_resource type="Script" path="res://scenes/Match.gd" id="1_ogdny"]
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="1_qehov"]
-[ext_resource type="Texture2D" uid="uid://tcy80ohits8e" path="res://assets/graphics/rest_time_bell.png" id="2_6kqkc"]
+[ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="2_h2ep0"]
 
 [node name="Match" type="Node3D"]
+script = ExtResource("1_ogdny")
 
 [node name="Game" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
@@ -47,28 +49,4 @@ grow_vertical = 2
 text = "Status
 "
 
-[node name="Rest Time Transition" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 540.0
-offset_bottom = 360.0
-
-[node name="ColorRect" type="ColorRect" parent="Rest Time Transition"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="Rest Time Transition"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_6kqkc")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Rest Time Transition"]
+[node name="Rest Time Transition" parent="." instance=ExtResource("2_h2ep0")]
