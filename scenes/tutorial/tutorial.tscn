@@ -17,8 +17,8 @@ script = ExtResource("2_df846")
 [node name="Standby" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="ColorRect" type="ColorRect" parent="Standby"]
 layout_mode = 1
@@ -49,6 +49,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.619608, 0.270588, 0.435294, 1)

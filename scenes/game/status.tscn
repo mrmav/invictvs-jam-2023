@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://quqcply0xxdu"]
+[gd_scene load_steps=15 format=3 uid="uid://cuo7iqmc1wneq"]
 
 [ext_resource type="Texture2D" uid="uid://d0eov6ksex56c" path="res://assets/graphics/image-1.png (1).png" id="1_5oj0r"]
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_fl5j7"]
@@ -65,7 +65,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="Status" type="Control"]
-custom_minimum_size = Vector2(540, 360)
+custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
 offset_top = 360.0
@@ -107,6 +107,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r1ixe")
@@ -126,11 +127,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_n8oex")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -148,11 +151,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab2"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_t3xcr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab2"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -170,11 +175,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab3"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_a8edu")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab3"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -187,16 +194,19 @@ script = ExtResource("4_np1pc")
 counter = "stand"
 
 [node name="Left Jab4" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab4"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_t3xcr")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab4"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -209,16 +219,19 @@ script = ExtResource("4_np1pc")
 counter = "right_jab"
 
 [node name="Left Jab5" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab5"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_n8oex")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab5"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -236,11 +249,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab6"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("4_yb7u2")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab6"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -258,11 +273,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab7"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_5oj0r")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab7"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -280,11 +297,13 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab8"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_wd2of")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab8"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -297,16 +316,19 @@ script = ExtResource("4_np1pc")
 counter = "guard"
 
 [node name="Left Jab9" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab9"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_5oj0r")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab9"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -319,16 +341,19 @@ script = ExtResource("4_np1pc")
 counter = "right_uppercut"
 
 [node name="Left Jab10" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab10"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("4_yb7u2")
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab10"]
+texture_filter = 1
 layout_mode = 2
 text = "13
 "
@@ -341,6 +366,7 @@ script = ExtResource("4_np1pc")
 counter = "right_hook"
 
 [node name="Label2" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "note: don't reach 13."
@@ -348,6 +374,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r1ixe")
@@ -368,6 +395,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer7/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -380,6 +408,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer7/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Stand or
 Finish"
@@ -387,19 +416,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer8" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer8"]
+texture_filter = 1
 layout_mode = 2
 alignment = 1
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -410,16 +443,19 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jab2" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer/Jab2"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -430,15 +466,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer8/HBoxContainer/Jab2"]
+texture_filter = 1
 layout_mode = 2
 text = "---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jab3" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer8"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer8/Jab3"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -449,19 +488,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer8/Jab3"]
+texture_filter = 1
 layout_mode = 2
 text = "---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -474,15 +517,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Dodge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Uppercut" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer/Uppercut"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -495,19 +541,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer/Uppercut"]
+texture_filter = 1
 layout_mode = 2
 text = "Hook"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer2/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -520,15 +570,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer2/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Jab"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Uppercut" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer2"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer2/Uppercut"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -541,6 +594,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer2/Uppercut"]
+texture_filter = 1
 layout_mode = 2
 text = "Upper
 Cut"
@@ -548,13 +602,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer3/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -565,15 +622,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer3/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "---"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Uppercut" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer3"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer3/Uppercut"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -586,19 +646,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer3/Uppercut"]
+texture_filter = 1
 layout_mode = 2
 text = "Guard"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer5"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer5/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -611,15 +675,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer5/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Jab"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Uppercut" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer5"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer5/Uppercut"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -632,6 +699,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer5/Uppercut"]
+texture_filter = 1
 layout_mode = 2
 text = "Upper
 Cut"
@@ -639,13 +707,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer4"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer4/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -658,15 +729,18 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer4/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Dodge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Uppercut" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer4"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer4/Uppercut"]
+texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -679,19 +753,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer4/Uppercut"]
+texture_filter = 1
 layout_mode = 2
 text = "Hook"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Jab" type="VBoxContainer" parent="VBoxContainer2/Buttons/VBoxContainer6"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2/Buttons/VBoxContainer6/Jab"]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -704,6 +782,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer6/Jab"]
+texture_filter = 1
 layout_mode = 2
 text = "Stand or
 Finish"

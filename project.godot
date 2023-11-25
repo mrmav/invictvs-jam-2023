@@ -26,7 +26,7 @@ Store="*res://src/store/store.tscn"
 
 [display]
 
-window/size/viewport_width=540
+window/size/viewport_width=640
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1

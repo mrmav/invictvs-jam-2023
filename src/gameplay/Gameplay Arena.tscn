@@ -127,7 +127,6 @@ environment = SubResource("Environment_1pihn")
 transform = Transform3D(1, 0, 0, 0, 0.932778, 0.360452, 0, -0.360452, 0.932778, 0, 0.638919, 0.732631)
 
 [node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
-current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {

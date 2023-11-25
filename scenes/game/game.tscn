@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
-[ext_resource type="PackedScene" path="res://scenes/game/status.tscn" id="4_yafpb"]
+[ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="4_yafpb"]
 [ext_resource type="PackedScene" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
 
 [node name="Game" type="Control"]
@@ -16,7 +16,7 @@ script = ExtResource("2_4mhnq")
 script = ExtResource("1_klbh0")
 
 [node name="Game" type="Control" parent="."]
-custom_minimum_size = Vector2(540, 360)
+custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
