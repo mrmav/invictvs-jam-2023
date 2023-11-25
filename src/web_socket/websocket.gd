@@ -43,7 +43,7 @@ func _process(delta):
 			# INPUT LOGIC:
 
 			var input_obj = JSON.parse_string(socket.get_packet().get_string_from_utf8())
-			print("Packet: ", JSON.stringify(input_obj, "\t"))
+			#print("Packet: ", JSON.stringify(input_obj, "\t"))
 
 			if input_obj.id == "service::hardware/inputs/status_change":
 				var input_evt = InputEventAction.new()
