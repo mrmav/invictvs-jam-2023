@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjkivu3n1kfkd"]
+[gd_scene load_steps=17 format=3 uid="uid://cjkivu3n1kfkd"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
@@ -9,56 +9,55 @@
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
 [ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="9_1aa6h"]
-[ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="10_ij63s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn2n4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb4w5"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(0, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sd5s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4b52"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(128, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cqnqs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4xmn"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(256, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o52dw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0s6m"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(384, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qtf3q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g8nr"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(512, 0, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_op6t5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_707xs"]
 atlas = ExtResource("9_1aa6h")
 region = Rect2(640, 0, 128, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_l017y"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksycj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fn2n4")
+"texture": SubResource("AtlasTexture_mb4w5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6sd5s")
+"texture": SubResource("AtlasTexture_r4b52")
 }, {
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_cqnqs")
+"texture": SubResource("AtlasTexture_f4xmn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o52dw")
+"texture": SubResource("AtlasTexture_o0s6m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qtf3q")
+"texture": SubResource("AtlasTexture_2g8nr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_op6t5")
+"texture": SubResource("AtlasTexture_707xs")
 }],
-"loop": true,
-"name": &"right_jab",
-"speed": 14.0
+"loop": false,
+"name": &"jab_right",
+"speed": 26.0
 }]
 
 [node name="Player" type="Node3D"]
@@ -320,12 +319,9 @@ texture = ExtResource("5_rvue4")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.846244, 0, 0, 0, 0.846244, 0, 0, 0, 1, 0.0599111, 0.250105, 0)
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_l017y")
-animation = &"right_jab"
-autoplay = "right_jab"
-frame_progress = 0.256576
-
-[node name="Camera3D2" parent="." instance=ExtResource("10_ij63s")]
+sprite_frames = SubResource("SpriteFrames_ksycj")
+animation = &"jab_right"
+frame_progress = 0.56462
 
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Idle" to="." method="_on_idle_state_entered" binds= [true]]
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Jab" to="." method="_on_jab_state_entered" binds= [true]]

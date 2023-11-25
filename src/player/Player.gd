@@ -8,6 +8,9 @@ const DODGE_TIME = 1
 @onready var _left_hand = $"Left Placeholder"
 @onready var _right_hand = $"Right Placeholder"
 
+@onready var _animation_sprites = $AnimatedSprite3D
+@onready var _animation_player : AnimationPlayer = get_node("AnimationPlayer")
+
 var gameplay_arena
 
 
@@ -93,7 +96,9 @@ func _on_jab_state_entered(is_right_hand):
 	CounterManager.increase(_prefix("jab", is_right_hand))
 	
 	# To susbstitute by animation
-	await get_tree().create_timer(0.1).timeout
+	_animation_sprites.play("jab_right")
+	_animation_player.play("jab")
+	LEDPatternTriggerer.trigger("crocc_giv_dmg")
 	
 	_attack_finished(is_right_hand)
 
