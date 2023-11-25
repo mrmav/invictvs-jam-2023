@@ -48,6 +48,11 @@ func _process(delta):
 						input_evt.action = "dodge_right"
 					"play":
 						input_evt.action = "stand"
+					"pay":
+						input_evt.action = "menu"
+					"help":
+						input_evt.action = "rules"
+					
 
 				input_evt.pressed = input_obj.payload.data.input_state == "active"
 				Input.parse_input_event(input_evt)
