@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjkivu3n1kfkd"]
+[gd_scene load_steps=9 format=3 uid="uid://cjkivu3n1kfkd"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_205jc"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_vbir0"]
@@ -8,17 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="6_e2df6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
-[ext_resource type="Script" path="res://src/web_socket/websocket.gd" id="9_fccge"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_205jc")
 
 [node name="StateChartDebugger" parent="." instance=ExtResource("6_e2df6")]
+visible = false
 custom_minimum_size = Vector2(100, 300)
 offset_left = 71.0
 offset_top = 15.0
 offset_right = -60.0
 offset_bottom = -319.0
+enabled = false
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="StateChart" type="Node" parent="."]
@@ -254,19 +255,13 @@ event = &"lose"
 script = ExtResource("4_xif40")
 
 [node name="Left Placeholder" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.152, 0, 0, 0, 0.152, -0.5, -0.5, 0)
+transform = Transform3D(0.08, 0, 0, 0, 0.082, 0, 0, 0, 0.082, -0.3, 0, 0)
 texture = ExtResource("5_rvue4")
 
 [node name="Right Placeholder" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.152, 0, 0, 0, 0.152, 0.5, -0.5, 0)
+transform = Transform3D(0.08, 0, 0, 0, 0.082, 0, 0, 0, 0.082, 0.3, 0, 0)
 flip_h = true
 texture = ExtResource("5_rvue4")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.944246)
-
-[node name="WebSocketInput" type="Node" parent="."]
-script = ExtResource("9_fccge")
 
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Idle" to="." method="_on_idle_state_entered" binds= [true]]
 [connection signal="state_entered" from="StateChart/Root/Combat/Right Hand/Jab" to="." method="_on_jab_state_entered" binds= [true]]

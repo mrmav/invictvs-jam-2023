@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://duhu0jnsn0rjp"]
+
+[ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="1_qehov"]
+[ext_resource type="Texture2D" uid="uid://tcy80ohits8e" path="res://assets/graphics/rest_time_bell.png" id="2_6kqkc"]
+
+[node name="Match" type="Node3D"]
+
+[node name="Game" type="Control" parent="."]
+custom_minimum_size = Vector2(540, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gameplay Arena" parent="Game" instance=ExtResource("1_qehov")]
+
+[node name="Status" type="Control" parent="."]
+custom_minimum_size = Vector2(540, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 360.0
+offset_right = 540.0
+offset_bottom = 720.0
+
+[node name="ColorRect" type="ColorRect" parent="Status"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.247059, 1, 1)
+
+[node name="Label" type="Label" parent="Status/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -11.5
+offset_right = 24.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Status
+"
+
+[node name="Rest Time Transition" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 540.0
+offset_bottom = 360.0
+
+[node name="ColorRect" type="ColorRect" parent="Rest Time Transition"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Rest Time Transition"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6kqkc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rest Time Transition"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://di6kpg88rdi4j"]
+
+[ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
+[ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
+[ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
+[ext_resource type="Texture2D" uid="uid://cyt4h2217b73o" path="res://assets/graphics/default.png" id="3_kpmsf"]
+[ext_resource type="Texture2D" uid="uid://b13x1q1bju8q3" path="res://assets/graphics/placeholder.png" id="5_4ksjs"]
+
+[sub_resource type="Environment" id="Environment_1pihn"]
+ambient_light_source = 2
+ambient_light_color = Color(0.486275, 0.458824, 0.32549, 1)
+ambient_light_energy = 16.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ccos0"]
+top_radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxuxs"]
+albedo_color = Color(0.313726, 0.32549, 0.345098, 1)
+
+[node name="Gameplay Arena" type="Node3D"]
+script = ExtResource("1_w7wru")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1pihn")
+
+[node name="Player" parent="." instance=ExtResource("1_ddycb")]
+transform = Transform3D(1, 0, 0, 0, 0.84103, 0.540989, 0, -0.540989, 0.84103, 0, 1, 0.2)
+
+[node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
+
+[node name="Enemy Placeholder" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.2)
+texture = ExtResource("3_kpmsf")
+
+[node name="Arena Placeholder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("CylinderMesh_ccos0")
+surface_material_override/0 = SubResource("StandardMaterial3D_pxuxs")
+
+[node name="Sprite3D" type="Sprite3D" parent="Arena Placeholder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2.52597)
+texture = ExtResource("5_4ksjs")

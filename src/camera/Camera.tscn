@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cubyedj7aculn"]
+
+[sub_resource type="Gradient" id="Gradient_s2pws"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ugrjv"]
+gradient = SubResource("Gradient_s2pws")
+width = 1
+
+[node name="Camera3D2" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Lower Screen" type="Sprite3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -0.5, -0.1)
+texture = SubResource("GradientTexture1D_ugrjv")
