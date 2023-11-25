@@ -51,6 +51,8 @@ func _process(delta):
 						input_evt.action = "right_hook"
 					"play_68":
 						input_evt.action = "right_upper_cut"
+					"play_38":
+						input_evt.action = "guard"
 					"bet_1":
 						input_evt.action = "dodge_left"
 					"bet_10":
