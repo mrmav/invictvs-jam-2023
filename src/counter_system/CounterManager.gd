@@ -1,6 +1,7 @@
 extends Node
 
 signal limit_reached(id:String)
+signal update(id:String, value)
 
 const COUNTER_LIMIT = 13
 
@@ -17,6 +18,7 @@ func _ready():
 	_register("right_uppercut")
 	_register("dodge_right")
 	_register("guard", true)
+	_register("stand")
 
 
 # Registers new counter
@@ -28,6 +30,7 @@ func _register(id: String, is_float = false):
 # Increases a counter
 func increase(id: String, value = 1):
 	_counters[id] += value
+	update.emit(id, _counters[id])
 	if _counters[id] >= COUNTER_LIMIT:
 		limit_reached.emit(id)
 
@@ -36,6 +39,7 @@ func increase(id: String, value = 1):
 func decrease(id: String, value = 1):
 	_counters[id] -= value
 	_counters[id] = max(_counters[id], 0)
+	update.emit(id, _counters[id])
 	
 
 # Decreases all counter
@@ -47,6 +51,7 @@ func decrease_all(value = 1):
 # Resets a counter (counter = 0)
 func reset(id: String):
 	_counters[id] = 0
+	update.emit(id, _counters[id])
 
 
 # Resets a counter (counter = 0)
