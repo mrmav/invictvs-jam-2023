@@ -229,6 +229,11 @@ func _on_idle_tree_state_state_entered():
 	
 
 func _on_idle_tree_state_state_process(delta):
+	var rand = randi() % 5
+	if rand < 5:
+		state_chart.send_event("left_jab_charge")
+		return	
+	
 	defense_time -= delta
 	attack_time -= delta
 	
