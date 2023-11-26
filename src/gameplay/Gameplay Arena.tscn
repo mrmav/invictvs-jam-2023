@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=29 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
 [ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
+[ext_resource type="Shader" path="res://assets/models/base/Outline.gdshader" id="4_4fkve"]
 [ext_resource type="AudioStream" uid="uid://bgloq7syu3flm" path="res://assets/sound/Punch_03.wav" id="4_jylvr"]
 [ext_resource type="AudioStream" uid="uid://lb5do3n8os1e" path="res://assets/sound/Punch_05.wav" id="5_lb2de"]
 [ext_resource type="PackedScene" uid="uid://3er6vv4y61bk" path="res://src/rival/rival.tscn" id="5_r8k2v"]
@@ -16,6 +17,16 @@
 background_energy_multiplier = 0.0
 ambient_light_source = 2
 ambient_light_energy = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1me6"]
+render_priority = 0
+shader = ExtResource("4_4fkve")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_42roh"]
+material = SubResource("ShaderMaterial_n1me6")
+size = Vector2(3, 3)
 
 [sub_resource type="Animation" id="Animation_nipuv"]
 length = 0.001
@@ -443,6 +454,10 @@ frame_progress = 0.0
 
 [node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.937464, -0.348081, 0, 0.348081, 0.937464, 0, 0.645096, -1.66938)
+mesh = SubResource("QuadMesh_42roh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
