@@ -40,7 +40,7 @@ func _on_knocked_tree_state_state_entered():
 
 func _ready() -> void:
 	Store.rival_node = self
-	Store.rival_health = 100
+	Store.rival_health = 300
 	Store.surpassed_down_sequence.connect(on_surpassed_down_sequence)
 	idle_tree_state.state_entered.connect(_on_idle_tree_state_state_entered)
 	idle_tree_state.state_processing.connect(_on_idle_tree_state_state_process)
@@ -220,15 +220,20 @@ var defense_time = 0.0
 var attack_time = 0.0
 
 const DEFENSE_TIME = 0.8
-const ATTACK_TIME = 2.0
+const ATTACK_TIME = 1
 const VARIATION = 0.2
 
 func _on_idle_tree_state_state_entered():
+	var rand = randi() % 100
+	if rand < 8:
+		state_chart.send_event("left_jab_charge")
+		return	
+		
 	defense_time = DEFENSE_TIME + randf_range(0.0, 0.2)
 	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
 	
 
-func _on_idle_tree_state_state_process(delta):
+func _on_idle_tree_state_state_process(delta):	
 	defense_time -= delta
 	attack_time -= delta
 	
@@ -283,17 +288,17 @@ func _on_idle_handle_attack():
 		state_chart.send_event("lower_block")
 	if rand < 15:
 		state_chart.send_event("upper_block")
-	elif rand < 25:
+	elif rand < 30:
 		state_chart.send_event("left_jab_charge")
-	elif rand < 35:
-		state_chart.send_event("right_jab_charge")
 	elif rand < 45:
-		state_chart.send_event("left_hook_charge")
+		state_chart.send_event("right_jab_charge")
 	elif rand < 55:
-		state_chart.send_event("right_hook_charge")
+		state_chart.send_event("left_hook_charge")
 	elif rand < 65:
-		state_chart.send_event("left_uppercut_charge")
+		state_chart.send_event("right_hook_charge")
 	elif rand < 75:
+		state_chart.send_event("left_uppercut_charge")
+	elif rand < 85:
 		state_chart.send_event("right_uppercut_charge")
 	else:
 		return

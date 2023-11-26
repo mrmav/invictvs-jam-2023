@@ -458,6 +458,7 @@ bus = &"SFX"
 
 [node name="sfx_hurt" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("7_bb0f8")
+volume_db = 15.044
 pitch_scale = 0.93
 bus = &"SFX"
 
