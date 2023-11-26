@@ -128,6 +128,7 @@ func light_hit():
 func strong_hit():
 	_state_chart.send_event("knockout")
 	_animation_player.play("hurt")
+	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 
 func _lose(id:String):
 	_state_chart.send_event("lose")
@@ -169,7 +170,7 @@ func _on_jab_state_entered(is_right_hand):
 	# To susbstitute by animation
 	sprites.play("jab_right")
 	_animation_player.play("jab_" + ("right" if is_right_hand else "left"))
-	LEDPatternTriggerer.trigger("crocc_giv_dmg")
+	#LEDPatternTriggerer.trigger("crocc_giv_dmg")
 	
 	await sprites.animation_finished
 	
@@ -183,6 +184,8 @@ func _on_preparing_hook_state_entered(is_right_hand):
 	# if time: implement camera movement
 	#_animation_player.play("upper_cut_anticipation")
 	preparing_hook.emit()
+	LEDPatternTriggerer.trigger("crocc_hld")
+	
 
 	await sprites.animation_finished
 	
