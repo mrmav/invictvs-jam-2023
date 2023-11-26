@@ -39,3 +39,5 @@ mono_crash.*.json
 export/bin/*.pck
 export/bin/*.x86_64
 export/bin/*.sh
+
+build/

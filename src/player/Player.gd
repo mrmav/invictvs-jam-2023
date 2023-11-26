@@ -72,7 +72,7 @@ func _input(event):
 	emit_signal("gave_damage")
 	
 	# LEFT HAND CONTROLS
-	if Utils.is_action_just_released(event, "left_jab"):
+	if Utils.is_action_just_pressed(event, "left_jab"):
 		emit_signal("hit_rival")
 		_state_chart.send_event("left_jab")
 		
@@ -90,11 +90,11 @@ func _input(event):
 		emit_signal("hit_rival")
 		_state_chart.send_event("left_uppercut")
 		
-	if Utils.is_action_just_released(event, "dodge_left"):
+	if Utils.is_action_just_pressed(event, "dodge_left"):
 		_state_chart.send_event("dodge_left")
 
 	# RIGHT HAND CONTROLS
-	if Utils.is_action_just_released(event, "right_jab"):
+	if Utils.is_action_just_pressed(event, "right_jab"):
 		emit_signal("hit_rival")
 		_state_chart.send_event("right_jab")
 		
@@ -112,7 +112,7 @@ func _input(event):
 		emit_signal("hit_rival")
 		_state_chart.send_event("right_uppercut")
 		
-	if Utils.is_action_just_released(event, "dodge_right"):
+	if Utils.is_action_just_pressed(event, "dodge_right"):
 		_state_chart.send_event("dodge_right")
 	
 	if Utils.is_action_just_pressed(event, "guard"):
