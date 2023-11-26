@@ -224,7 +224,7 @@ pivot_offset = Vector2(138, 18)
 theme_override_colors/font_color = Color(0.886275, 0.121569, 0.309804, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
-text = "Desqualified"
+text = "Disqualified"
 uppercase = true
 
 [node name="Label2" type="Label" parent="ScrollContainer"]
