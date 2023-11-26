@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=17 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
@@ -84,6 +84,23 @@ tracks/0/keys = {
 "values": [Vector3(-0.368752, 0, 0), Vector3(-0.338094, 0.361424, -0.170213), Vector3(-0.368752, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ryoym"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 2, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(0, 0.62, 0.733), Vector3(0, 0.638919, 0.732631)]
+}
+
 [sub_resource type="Animation" id="Animation_jplx1"]
 resource_name = "jab"
 length = 0.16
@@ -113,21 +130,109 @@ tracks/1/keys = {
 "values": [75.0, 70.0, 75.0]
 }
 
-[sub_resource type="Animation" id="Animation_ryoym"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_qim0b"]
+resource_name = "upper_cut"
+length = 0.26
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Camera3D:fov")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(2, 2, 1),
+"times": PackedFloat32Array(0, 0.26),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.638919, 0.732631), Vector3(0, 0.62, 0.733), Vector3(0, 0.638919, 0.732631)]
+"values": [72.0, 75.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.26),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.450854, 0, 0), Vector3(-0.368752, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_45sfw"]
+resource_name = "upper_cut_anticipation"
+length = 0.26
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [75.0, 72.0]
+}
+
+[sub_resource type="Animation" id="Animation_ya3dj"]
+resource_name = "hook_hit_right"
+length = 0.2
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366748, 0.109198, -0.0392924), Vector3(-0.368752, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(-0.228712, 0.64735, 0.754448), Vector3(0, 0.638919, 0.732631)]
+}
+
+[sub_resource type="Animation" id="Animation_x78mv"]
+resource_name = "hook_hit_left"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366674, -0.111197, 0.0400092), Vector3(-0.368752, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(0.229, 0.647, 0.754), Vector3(0, 0.638919, 0.732631)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iuc5u"]
@@ -135,8 +240,12 @@ _data = {
 "RESET": SubResource("Animation_nipuv"),
 "dodge_left": SubResource("Animation_fc2a7"),
 "dodge_right": SubResource("Animation_anqd8"),
+"hook_hit_left": SubResource("Animation_x78mv"),
+"hook_hit_right": SubResource("Animation_ya3dj"),
 "idle": SubResource("Animation_ryoym"),
-"jab": SubResource("Animation_jplx1")
+"jab": SubResource("Animation_jplx1"),
+"upper_cut": SubResource("Animation_qim0b"),
+"upper_cut_anticipation": SubResource("Animation_45sfw")
 }
 
 [node name="Gameplay Arena" type="Node3D"]
@@ -150,11 +259,13 @@ transform = Transform3D(1, 0, 0, 0, 0.932778, 0.360452, 0, -0.360452, 0.932778, 
 
 [node name="RightAnimatedSprite3D" parent="Player" index="3"]
 transform = Transform3D(0.845712, 0, -0.0354402, 9.31323e-10, 0.846244, 5.96046e-08, 0.0299911, -2.98023e-08, 0.999372, 0.123849, 0.250105, 0.0210127)
+frame_progress = 0.614601
 
 [node name="LeftAnimatedSprite3D" parent="Player" index="4"]
 transform = Transform3D(0.845827, 0, 0.0313933, -9.31323e-10, 0.846244, 2.98023e-08, -0.0265664, -2.98023e-08, 0.999507, -0.162507, 0.250105, -0.0223575)
 
 [node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
