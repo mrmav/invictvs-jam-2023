@@ -220,7 +220,7 @@ var defense_time = 0.0
 var attack_time = 0.0
 
 const DEFENSE_TIME = 0.8
-const ATTACK_TIME = 2.0
+const ATTACK_TIME = 1
 const VARIATION = 0.2
 
 func _on_idle_tree_state_state_entered():
@@ -288,17 +288,17 @@ func _on_idle_handle_attack():
 		state_chart.send_event("lower_block")
 	if rand < 15:
 		state_chart.send_event("upper_block")
-	elif rand < 25:
+	elif rand < 30:
 		state_chart.send_event("left_jab_charge")
-	elif rand < 35:
-		state_chart.send_event("right_jab_charge")
 	elif rand < 45:
-		state_chart.send_event("left_hook_charge")
+		state_chart.send_event("right_jab_charge")
 	elif rand < 55:
-		state_chart.send_event("right_hook_charge")
+		state_chart.send_event("left_hook_charge")
 	elif rand < 65:
-		state_chart.send_event("left_uppercut_charge")
+		state_chart.send_event("right_hook_charge")
 	elif rand < 75:
+		state_chart.send_event("left_uppercut_charge")
+	elif rand < 85:
 		state_chart.send_event("right_uppercut_charge")
 	else:
 		return
