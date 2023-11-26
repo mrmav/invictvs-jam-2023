@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0cmt546gfj8k"]
+[gd_scene load_steps=6 format=3 uid="uid://b0cmt546gfj8k"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_adec7"]
 [ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_acie4"]
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="2_v6odb"]
 [ext_resource type="PackedScene" uid="uid://dbaqnsojda3bc" path="res://scenes/intro/game_story.tscn" id="3_yqyk1"]
+[ext_resource type="AudioStream" uid="uid://bduu3h1obmj47" path="res://assets/sound/JDB_Secrets_2.wav" id="5_tbxik"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -104,5 +105,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
 theme_override_font_sizes/font_size = 10
 text = "Press GAME RULES for tutorial"
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tbxik")
+bus = &"THEME"
 
 [connection signal="timeout" from="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label/Timer" to="Enter" method="_on_timer_timeout"]

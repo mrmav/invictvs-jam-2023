@@ -311,6 +311,9 @@ func _on_knockout_state_entered():
 		_knockout_timer.timeout.connect(_on_knockdown_timeout)
 	_knockout_timer.start()
 	_stand_up_counter.visible = true
+	
+	_animation_player.play("hurt")
+	
 
 func _on_knockout_state_input(event):
 	if Utils.is_action_just_released(event, "stand"):

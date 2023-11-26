@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=8 format=3 uid="uid://duhu0jnsn0rjp"]
 
 [ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
 [ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="4_yafpb"]
 [ext_resource type="PackedScene" uid="uid://s2mqhmrrqkwu" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
+[ext_resource type="AudioStream" uid="uid://dc0sdhkf07j12" path="res://assets/sound/JDB_Battleground.wav" id="7_1qleh"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -30,3 +31,7 @@ offset_bottom = 40.0
 
 [node name="Control" parent="." instance=ExtResource("6_7gjqt")]
 layout_mode = 1
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1qleh")
+bus = &"THEME"

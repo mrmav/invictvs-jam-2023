@@ -16,6 +16,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/graphics/icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://new_audio_bus_layout.tres"
+
 [autoload]
 
 CounterManager="*res://src/counter_system/CounterManager.gd"
