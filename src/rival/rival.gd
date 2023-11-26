@@ -35,16 +35,14 @@ func _physics_process(delta):
 		
 
 func _on_knocked_tree_state_state_entered():
-	print("pumba")
 	await get_tree().create_timer(3).timeout
-	print("coisa")
 	
 
 func _ready() -> void:
-	print(state_machine.get_current_node())
 	Store.rival_node = self
 	Store.rival_health = 100
 	Store.surpassed_down_sequence.connect(on_surpassed_down_sequence)
+	idle_tree_state.state_entered.connect(_on_idle_tree_state_state_entered)
 	idle_tree_state.state_processing.connect(_on_idle_tree_state_state_process)
 	down_timer.timeout.connect(on_down_timer_timeout)
 	match(Store.dificulty):
@@ -211,7 +209,7 @@ func on_left_uppercut() -> void:
 var defense_time = 0.0
 var attack_time = 0.0
 
-const DEFENSE_TIME = 1.0
+const DEFENSE_TIME = 0.8
 const ATTACK_TIME = 2.0
 const VARIATION = 0.2
 
@@ -248,18 +246,18 @@ func _on_idle_handle_defense():
 		elif rand < 100:
 			state_chart.send_event("right_jab_charge")
 	elif player_is_preparing_hook:
-		if rand < 60:
+		if rand < 100:
 			state_chart.send_event("lower_block")
-		elif rand < 75:
+		elif rand < 80:
 			state_chart.send_event("left_jab_charge")
 		elif rand < 90:
 			state_chart.send_event("right_jab_charge")
 		else:
 			return
 	elif player_is_preparing_uppercut:
-		if rand < 60:
+		if rand < 70:
 			state_chart.send_event("upper_block")
-		elif rand < 75:
+		elif rand < 80:
 			state_chart.send_event("left_jab_charge")
 		elif rand < 90:
 			state_chart.send_event("right_jab_charge")
