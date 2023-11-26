@@ -304,7 +304,7 @@ func _on_guard_state_processing(delta):
 	CounterManager.increase("guard", delta)
 
 
-func _on_guard_state_exited(delta):
+func _on_guard_state_exited():
 	_animation_sprites_left.play("guard_exit")
 	_animation_sprites_right.play("guard_exit")
 
