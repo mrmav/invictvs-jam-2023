@@ -13,9 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://d2fmorimgceq3" path="res://assets/sound/guard.wav" id="8_n48e0"]
 
 [sub_resource type="Environment" id="Environment_1pihn"]
+background_energy_multiplier = 0.0
 ambient_light_source = 2
-ambient_light_color = Color(0.486275, 0.458824, 0.32549, 1)
-ambient_light_energy = 16.0
+ambient_light_energy = 8.0
 
 [sub_resource type="Animation" id="Animation_nipuv"]
 length = 0.001
@@ -66,6 +66,21 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_06niw"]
+resource_name = "blocked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sfx_blocked:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_fc2a7"]
@@ -178,6 +193,21 @@ tracks/2/path = NodePath("sfx_hook:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_061vv"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sfx_hurt:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -365,36 +395,6 @@ tracks/0/keys = {
 "values": [75.0, 72.0]
 }
 
-[sub_resource type="Animation" id="Animation_061vv"]
-resource_name = "hurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sfx_hurt:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_06niw"]
-resource_name = "blocked"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sfx_blocked:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iuc5u"]
 _data = {
 "RESET": SubResource("Animation_nipuv"),
@@ -417,6 +417,14 @@ script = ExtResource("1_w7wru")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1pihn")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.55293, 0)
+light_energy = 3.0
+spot_range = 21.229
+spot_attenuation = 0.615573
+spot_angle = 69.0
+spot_angle_attenuation = 0.554784
+
 [node name="Player" parent="." instance=ExtResource("1_ddycb")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.932778, 0.360452, 0, -0.360452, 0.932778, 0, 0.638919, 0.732631)
@@ -434,7 +442,7 @@ frame = 2
 frame_progress = 0.0
 
 [node name="Camera3D" parent="Player" instance=ExtResource("2_im3ud")]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
