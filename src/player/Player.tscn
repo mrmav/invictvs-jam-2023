@@ -35,6 +35,11 @@ script = ExtResource("7_evmnb")
 to = NodePath("../../Jab")
 event = &"right_jab"
 
+[node name="To Guard" type="Node" parent="StateChart/Root/Combat/Right Hand/Idle"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../../../Guard")
+event = &"guard"
+
 [node name="To Preparing Hook" type="Node" parent="StateChart/Root/Combat/Right Hand/Idle"]
 script = ExtResource("7_evmnb")
 to = NodePath("../../Preparing Hook")
@@ -205,6 +210,11 @@ script = ExtResource("4_xif40")
 script = ExtResource("7_evmnb")
 to = NodePath("../../Combat")
 event = &"recover"
+
+[node name="To Idle" type="Node" parent="StateChart/Root/Guard"]
+script = ExtResource("7_evmnb")
+to = NodePath("../../Combat/Right Hand/Idle")
+event = &"idle"
 
 [node name="To Lost" type="Node" parent="StateChart/Root/Guard"]
 script = ExtResource("7_evmnb")

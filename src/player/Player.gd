@@ -55,6 +55,7 @@ func _ready():
 	dodging_right.state_entered.connect(_on_dodging_right_state_entered)
 	guard.state_entered.connect(_on_guard_state_entered)
 	guard.state_processing.connect(_on_guard_state_processing)
+	guard.state_exited.connect(_on_guard_state_exited)
 	stunned.state_entered.connect(_on_stunned_state_entered)
 	stunned.state_exited.connect(_on_stunned_state_exited)
 	knockout.state_entered.connect(_on_knockout_state_entered)
@@ -99,6 +100,12 @@ func _input(event):
 		
 	if Utils.is_action_just_released(event, "dodge_right"):
 		_state_chart.send_event("dodge_right")
+	
+	if Utils.is_action_just_pressed(event, "guard"):
+		_state_chart.send_event("enter_guard")
+	
+	if Utils.is_action_just_released(event, "guard"):
+		_state_chart.send_event("leave_guard")
 
 	
 func light_hit():
@@ -155,8 +162,14 @@ func _on_jab_state_entered(is_right_hand):
 
 
 func _on_preparing_hook_state_entered(is_right_hand):
-	var hand = _get_hand(is_right_hand)
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+	
+	sprites.play("hook_anticipation")
+	# if time: implement camera movement
+	#_animation_player.play("upper_cut_anticipation")
 
+	await sprites.animation_finished
+	
 
 func _on_hook_state_entered(is_right_hand):
 	attacking.emit(Enumerators.Attacks.RIGHT_HOOK if is_right_hand else Enumerators.Attacks.LEFT_HOOK)
@@ -164,7 +177,11 @@ func _on_hook_state_entered(is_right_hand):
 	CounterManager.increase(_prefix("hook", is_right_hand))
 	
 	# To susbstitute by animation
-	await get_tree().create_timer(0.4).timeout
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+	
+	sprites.play("hook")
+	_animation_player.play("hook_hit_" + ("right" if is_right_hand else "left"))
+	await sprites.animation_finished
 	
 	_attack_finished(is_right_hand)
 
@@ -258,13 +275,18 @@ func _on_stunned_timeout():
 #----------------------------------------
 
 func _on_guard_state_entered():
-	pass
+	print("guard")
+	_animation_sprites_left.play("guard")
+	_animation_sprites_right.play("guard")
 
 
 func _on_guard_state_processing(delta):
 	CounterManager.increase("guard", delta)
 
 
+func _on_guard_state_exited(delta):
+	_animation_sprites_left.play("guard_exit")
+	_animation_sprites_right.play("guard_exit")
 
 #----------------------------------------
 # Knockdown
