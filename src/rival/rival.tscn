@@ -1,9 +1,8 @@
-[gd_scene load_steps=99 format=3 uid="uid://3er6vv4y61bk"]
+[gd_scene load_steps=98 format=3 uid="uid://3er6vv4y61bk"]
 
 [ext_resource type="Script" path="res://src/rival/rival.gd" id="1_2ya48"]
 [ext_resource type="Texture2D" uid="uid://67x8aosx2sdd" path="res://assets/graphics/T_Bot.png" id="2_8uti0"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_kk78e"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_30p06"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_hocoa"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_tree_state.gd" id="4_qteil"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_0wpqp"]
@@ -892,9 +891,6 @@ texture = ExtResource("2_8uti0")
 hframes = 6
 vframes = 5
 frame = 3
-
-[node name="StateChartDebugger" parent="." instance=ExtResource("3_30p06")]
-initial_node_to_watch = NodePath("../StateChart")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_kk78e")
