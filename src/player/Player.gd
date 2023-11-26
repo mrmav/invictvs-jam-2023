@@ -127,6 +127,7 @@ func light_hit():
 
 func strong_hit():
 	_state_chart.send_event("knockout")
+	_animation_player.play("hurt")
 
 func _lose(id:String):
 	_state_chart.send_event("lose")

@@ -175,21 +175,32 @@ func on_hit() -> void:
 
 func on_right_hook() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
 
 func on_left_hook() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
+	
 
 func on_right_jab() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
+	
 
 func on_left_jab() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
+	
 
 func on_right_uppercut() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
+	
 
 func on_left_uppercut() -> void:
 	state_chart.send_event("idle")
+	Store.player_node.strong_hit()
+	
 
 
 

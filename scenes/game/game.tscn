@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=9 format=3 uid="uid://duhu0jnsn0rjp"]
 
 [ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
