@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://di6kpg88rdi4j"]
+[gd_scene load_steps=18 format=3 uid="uid://di6kpg88rdi4j"]
 
 [ext_resource type="PackedScene" uid="uid://cjkivu3n1kfkd" path="res://src/player/Player.tscn" id="1_ddycb"]
 [ext_resource type="Script" path="res://src/gameplay/Gameplay Arena.gd" id="1_w7wru"]
 [ext_resource type="PackedScene" uid="uid://cubyedj7aculn" path="res://src/camera/Camera.tscn" id="2_im3ud"]
 [ext_resource type="PackedScene" uid="uid://3er6vv4y61bk" path="res://src/rival/rival.tscn" id="5_r8k2v"]
+[ext_resource type="Script" path="res://src/gameplay/CrowdSpawner.gd" id="6_b2a1c"]
 [ext_resource type="PackedScene" uid="uid://ctxqxuy2u6ri5" path="res://assets/models/ready/Arena.tscn" id="6_jj44u"]
 
 [sub_resource type="Environment" id="Environment_1pihn"]
@@ -82,6 +83,65 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.368752, 0, 0), Vector3(-0.338094, 0.361424, -0.170213), Vector3(-0.368752, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x78mv"]
+resource_name = "hook_hit_left"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366674, -0.111197, 0.0400092), Vector3(-0.368752, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(0.229, 0.647, 0.754), Vector3(0, 0.638919, 0.732631)]
+}
+
+[sub_resource type="Animation" id="Animation_ya3dj"]
+resource_name = "hook_hit_right"
+length = 0.2
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366748, 0.109198, -0.0392924), Vector3(-0.368752, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector3(0, 0.638919, 0.732631), Vector3(-0.228712, 0.64735, 0.754448), Vector3(0, 0.638919, 0.732631)]
 }
 
 [sub_resource type="Animation" id="Animation_ryoym"]
@@ -176,65 +236,6 @@ tracks/0/keys = {
 "values": [75.0, 72.0]
 }
 
-[sub_resource type="Animation" id="Animation_ya3dj"]
-resource_name = "hook_hit_right"
-length = 0.2
-loop_mode = 1
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.2),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366748, 0.109198, -0.0392924), Vector3(-0.368752, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.2),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Vector3(0, 0.638919, 0.732631), Vector3(-0.228712, 0.64735, 0.754448), Vector3(0, 0.638919, 0.732631)]
-}
-
-[sub_resource type="Animation" id="Animation_x78mv"]
-resource_name = "hook_hit_left"
-length = 0.2
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.2),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Vector3(-0.368752, 0, 0), Vector3(-0.366674, -0.111197, 0.0400092), Vector3(-0.368752, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.2),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [Vector3(0, 0.638919, 0.732631), Vector3(0.229, 0.647, 0.754), Vector3(0, 0.638919, 0.732631)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iuc5u"]
 _data = {
 "RESET": SubResource("Animation_nipuv"),
@@ -255,6 +256,7 @@ script = ExtResource("1_w7wru")
 environment = SubResource("Environment_1pihn")
 
 [node name="Player" parent="." instance=ExtResource("1_ddycb")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.932778, 0.360452, 0, -0.360452, 0.932778, 0, 0.638919, 0.732631)
 
 [node name="RightAnimatedSprite3D" parent="Player" index="3"]
@@ -276,5 +278,8 @@ libraries = {
 
 [node name="Rival" parent="." instance=ExtResource("5_r8k2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568046, 0)
+
+[node name="CrowdSpawner" type="Node3D" parent="."]
+script = ExtResource("6_b2a1c")
 
 [editable path="Player"]

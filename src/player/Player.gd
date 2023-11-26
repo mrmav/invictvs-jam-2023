@@ -32,6 +32,8 @@ const DODGE_TIME = 1
 @onready var knockout: AtomicState = $StateChart/Root/Knockout
 
 signal attacking(attack: Enumerators.Attacks)
+signal gave_damage
+signal received_damage
 	
 var gameplay_arena
 
@@ -63,6 +65,9 @@ func _ready():
 
 
 func _input(event):
+	
+	emit_signal("gave_damage")
+	
 	# LEFT HAND CONTROLS
 	if Utils.is_action_just_released(event, "left_jab"):
 		_state_chart.send_event("left_jab")
