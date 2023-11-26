@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://3er6vv4y61bk"]
+[gd_scene load_steps=97 format=3 uid="uid://3er6vv4y61bk"]
 
 [ext_resource type="Script" path="res://src/rival/rival.gd" id="1_2ya48"]
 [ext_resource type="Texture2D" uid="uid://67x8aosx2sdd" path="res://assets/graphics/T_Bot.png" id="2_8uti0"]
@@ -1029,7 +1029,7 @@ texture_filter = 0
 texture = ExtResource("2_8uti0")
 hframes = 6
 vframes = 5
-frame = 3
+frame = 4
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_kk78e")
