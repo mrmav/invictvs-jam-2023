@@ -160,7 +160,7 @@ func _on_jab_state_entered(is_right_hand):
 			
 	# To susbstitute by animation
 	sprites.play("jab_right")
-	_animation_player.play("jab")
+	_animation_player.play("jab_" + ("right" if is_right_hand else "left"))
 	LEDPatternTriggerer.trigger("crocc_giv_dmg")
 	
 	await sprites.animation_finished
