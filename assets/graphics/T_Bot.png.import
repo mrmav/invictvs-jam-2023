@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://67x8aosx2sdd"
-path.s3tc="res://.godot/imported/T_Bot.png-a9cc19674b54dc4893ecdaf6dbba2393.s3tc.ctex"
+path="res://.godot/imported/T_Bot.png-a9cc19674b54dc4893ecdaf6dbba2393.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/graphics/T_Bot.png"
-dest_files=["res://.godot/imported/T_Bot.png-a9cc19674b54dc4893ecdaf6dbba2393.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_Bot.png-a9cc19674b54dc4893ecdaf6dbba2393.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

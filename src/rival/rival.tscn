@@ -1,29 +1,11 @@
-[gd_scene load_steps=99 format=3 uid="uid://3er6vv4y61bk"]
+[gd_scene load_steps=97 format=3 uid="uid://3er6vv4y61bk"]
 
 [ext_resource type="Script" path="res://src/rival/rival.gd" id="1_2ya48"]
 [ext_resource type="Texture2D" uid="uid://67x8aosx2sdd" path="res://assets/graphics/T_Bot.png" id="2_8uti0"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_kk78e"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_30p06"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_hocoa"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/animation_tree_state.gd" id="4_qteil"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_0wpqp"]
-
-[sub_resource type="Animation" id="Animation_8nj2a"]
-resource_name = "block_down"
-length = 1.2
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
 
 [sub_resource type="Animation" id="Animation_vnaqo"]
 resource_name = "down"
@@ -79,6 +61,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_hit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_6f8x3"]
@@ -164,6 +160,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_hook"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dhpa6"]
 resource_name = "left_hook_charge"
@@ -191,6 +201,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_hook_charged"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_qd5q1"]
@@ -220,6 +244,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_jab"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8b56k"]
 resource_name = "left_jab_charge"
@@ -247,6 +285,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_jab_charged"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_27ief"]
@@ -276,6 +328,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_uppercut"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_sslsh"]
 resource_name = "left_uppercut_charge"
@@ -304,10 +370,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_left_uppercut_charged"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xtixu"]
 resource_name = "lower_block"
 length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -387,6 +468,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_right_hook"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ouggc"]
@@ -542,6 +637,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_right_uppercut"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xeynt"]
 resource_name = "right_uppercut_charge"
@@ -570,10 +679,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_right_uppercut_charged"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_tlg3w"]
 resource_name = "upper_block"
 length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -654,10 +778,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_hit"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ykql8"]
 _data = {
-"block_down": SubResource("Animation_8nj2a"),
 "down": SubResource("Animation_vnaqo"),
 "hit": SubResource("Animation_6sens"),
 "idle": SubResource("Animation_6f8x3"),
@@ -745,6 +882,7 @@ animation = &"upper_blocked_hit"
 animation = &"uppercut_hit"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3den"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q7hqv"]
 
@@ -881,7 +1019,7 @@ states/upper_blocked_hit/position = Vector2(-349.533, -10.962)
 states/uppercut_hit/node = SubResource("AnimationNodeAnimation_4mrwu")
 states/uppercut_hit/position = Vector2(1159.33, 18.7562)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r3den"), "idle", "down", SubResource("AnimationNodeStateMachineTransition_q7hqv"), "down", "knocked", SubResource("AnimationNodeStateMachineTransition_gejm4"), "down", "idle", SubResource("AnimationNodeStateMachineTransition_b0643"), "idle", "right_jab_charge", SubResource("AnimationNodeStateMachineTransition_5qved"), "right_jab_charge", "right_jab", SubResource("AnimationNodeStateMachineTransition_6uvsw"), "right_jab_charge", "hit", SubResource("AnimationNodeStateMachineTransition_h0p70"), "right_jab", "hit", SubResource("AnimationNodeStateMachineTransition_hb0y0"), "idle", "left_jab_charge", SubResource("AnimationNodeStateMachineTransition_82ncg"), "left_jab_charge", "left_jab", SubResource("AnimationNodeStateMachineTransition_xdo4b"), "left_jab_charge", "hit", SubResource("AnimationNodeStateMachineTransition_e2mer"), "left_jab", "hit", SubResource("AnimationNodeStateMachineTransition_a0uh2"), "idle", "left_hook_charge", SubResource("AnimationNodeStateMachineTransition_bx8hr"), "left_hook_charge", "left_hook", SubResource("AnimationNodeStateMachineTransition_wnm2t"), "left_hook_charge", "hit", SubResource("AnimationNodeStateMachineTransition_i62rp"), "left_hook", "hit", SubResource("AnimationNodeStateMachineTransition_4n758"), "right_hook_charge", "hit", SubResource("AnimationNodeStateMachineTransition_uig6g"), "right_hook", "hit", SubResource("AnimationNodeStateMachineTransition_8od75"), "right_hook_charge", "right_hook", SubResource("AnimationNodeStateMachineTransition_ltirp"), "idle", "right_hook_charge", SubResource("AnimationNodeStateMachineTransition_ig3dw"), "idle", "left_uppercut_charge", SubResource("AnimationNodeStateMachineTransition_pgxxh"), "left_uppercut_charge", "left_uppercut", SubResource("AnimationNodeStateMachineTransition_mltki"), "left_uppercut_charge", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_fitvg"), "left_uppercut", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_c0bur"), "idle", "right_uppercut_charge", SubResource("AnimationNodeStateMachineTransition_nslhn"), "right_uppercut_charge", "right_uppercut", SubResource("AnimationNodeStateMachineTransition_d7p4a"), "right_uppercut_charge", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_mytbw"), "right_uppercut", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_ttbiy"), "left_jab", "idle", SubResource("AnimationNodeStateMachineTransition_w53eu"), "left_hook", "idle", SubResource("AnimationNodeStateMachineTransition_4ph3n"), "right_jab", "idle", SubResource("AnimationNodeStateMachineTransition_iautf"), "right_hook", "idle", SubResource("AnimationNodeStateMachineTransition_g1n7p"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_e4lfa"), "left_uppercut", "idle", SubResource("AnimationNodeStateMachineTransition_gwij4"), "right_uppercut", "idle", SubResource("AnimationNodeStateMachineTransition_ikqpf"), "uppercut_hit", "idle", SubResource("AnimationNodeStateMachineTransition_7uwhj"), "idle", "block_down", SubResource("AnimationNodeStateMachineTransition_xxtou"), "idle", "upper_block", SubResource("AnimationNodeStateMachineTransition_ollu5"), "upper_block", "idle", SubResource("AnimationNodeStateMachineTransition_ok4et"), "block_down", "idle", SubResource("AnimationNodeStateMachineTransition_a0q13"), "block_down", "lower_blocked_hit", SubResource("AnimationNodeStateMachineTransition_nlq40"), "lower_blocked_hit", "block_down", SubResource("AnimationNodeStateMachineTransition_qxlmi"), "upper_block", "upper_blocked_hit", SubResource("AnimationNodeStateMachineTransition_7gig2"), "upper_blocked_hit", "upper_block", SubResource("AnimationNodeStateMachineTransition_jr0or"), "upper_blocked_hit", "idle", SubResource("AnimationNodeStateMachineTransition_vwt64"), "lower_blocked_hit", "idle", SubResource("AnimationNodeStateMachineTransition_h6rxc")]
-graph_offset = Vector2(-820.051, -273.827)
+graph_offset = Vector2(-301.707, 50.4256)
 
 [node name="Rival" type="Node3D"]
 script = ExtResource("1_2ya48")
@@ -892,9 +1030,6 @@ texture = ExtResource("2_8uti0")
 hframes = 6
 vframes = 5
 frame = 3
-
-[node name="StateChartDebugger" parent="." instance=ExtResource("3_30p06")]
-initial_node_to_watch = NodePath("../StateChart")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_kk78e")
@@ -916,7 +1051,7 @@ event = &"knocked"
 [node name="ToIdle" type="Node" parent="StateChart/CompoundState/DownTreeState"]
 script = ExtResource("5_0wpqp")
 to = NodePath("../../IdleTreeState")
-event = &"revive"
+event = &"idle"
 
 [node name="KnockedTreeState" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_qteil")
@@ -1250,7 +1385,7 @@ event = &"idle"
 [node name="LowerBlockTreeState" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_qteil")
 animation_tree = NodePath("../../../AnimationTree")
-state_name = &"block_down"
+state_name = &"lower_block"
 
 [node name="ToIdle" type="Node" parent="StateChart/CompoundState/LowerBlockTreeState"]
 script = ExtResource("5_0wpqp")
@@ -1273,6 +1408,12 @@ state_name = &"hit"
 [node name="ToIdle" type="Node" parent="StateChart/CompoundState/HurtJabTreeState"]
 script = ExtResource("5_0wpqp")
 to = NodePath("../../IdleTreeState")
+event = &"idle"
+
+[node name="ToDown" type="Node" parent="StateChart/CompoundState/HurtJabTreeState"]
+script = ExtResource("5_0wpqp")
+to = NodePath("../../DownTreeState")
+event = &"down"
 
 [node name="HurtHookTreeState" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_qteil")
@@ -1282,15 +1423,27 @@ state_name = &"hit"
 [node name="ToIdle" type="Node" parent="StateChart/CompoundState/HurtHookTreeState"]
 script = ExtResource("5_0wpqp")
 to = NodePath("../../IdleTreeState")
+event = &"idle"
+
+[node name="ToDown" type="Node" parent="StateChart/CompoundState/HurtHookTreeState"]
+script = ExtResource("5_0wpqp")
+to = NodePath("../../DownTreeState")
+event = &"down"
 
 [node name="HurtUppercutTreeState" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_qteil")
 animation_tree = NodePath("../../../AnimationTree")
 state_name = &"uppercut_hit"
 
-[node name="Transition" type="Node" parent="StateChart/CompoundState/HurtUppercutTreeState"]
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/HurtUppercutTreeState"]
 script = ExtResource("5_0wpqp")
 to = NodePath("../../IdleTreeState")
+event = &"idle"
+
+[node name="ToDown" type="Node" parent="StateChart/CompoundState/HurtUppercutTreeState"]
+script = ExtResource("5_0wpqp")
+to = NodePath("../../DownTreeState")
+event = &"down"
 
 [node name="IdleTreeState" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_qteil")
@@ -1388,7 +1541,6 @@ to = NodePath("../../IdleTreeState")
 event = &"idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 libraries = {
 "": SubResource("AnimationLibrary_ykql8")
 }
@@ -1399,7 +1551,6 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_ykql8")
 }
-autoplay = "block_down"
 
 [node name="DownTimer" type="Timer" parent="."]
 

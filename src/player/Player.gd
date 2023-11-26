@@ -32,6 +32,7 @@ const DODGE_TIME = 1
 @onready var knockout: AtomicState = $StateChart/Root/Knockout
 
 signal attacking(attack: Enumerators.Attacks)
+signal hit_rival
 signal gave_damage
 signal received_damage
 signal preparing_hook()
@@ -72,18 +73,21 @@ func _input(event):
 	
 	# LEFT HAND CONTROLS
 	if Utils.is_action_just_released(event, "left_jab"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("left_jab")
 		
 	if Utils.is_action_just_pressed(event, "left_hook"):
 		_state_chart.send_event("left_prepare_hook")
 	
 	if Utils.is_action_just_released(event, "left_hook"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("left_hook")
 		
 	if Utils.is_action_just_pressed(event, "left_upper_cut"):
 		_state_chart.send_event("left_prepare_uppercut")
 		
 	if Utils.is_action_just_released(event, "left_upper_cut"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("left_uppercut")
 		
 	if Utils.is_action_just_released(event, "dodge_left"):
@@ -91,18 +95,21 @@ func _input(event):
 
 	# RIGHT HAND CONTROLS
 	if Utils.is_action_just_released(event, "right_jab"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("right_jab")
 		
 	if Utils.is_action_just_pressed(event, "right_hook"):
 		_state_chart.send_event("right_prepare_hook")
 	
 	if Utils.is_action_just_released(event, "right_hook"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("right_hook")
 		
 	if Utils.is_action_just_pressed(event, "right_upper_cut"):
 		_state_chart.send_event("right_prepare_uppercut")
 		
 	if Utils.is_action_just_released(event, "right_upper_cut"):
+		emit_signal("hit_rival")
 		_state_chart.send_event("right_uppercut")
 		
 	if Utils.is_action_just_released(event, "dodge_right"):
