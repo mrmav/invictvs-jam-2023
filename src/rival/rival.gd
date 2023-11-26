@@ -47,7 +47,7 @@ func _ready() -> void:
 	down_timer.timeout.connect(on_down_timer_timeout)
 	match(Store.dificulty):
 		1:
-			down_timer.wait_time = 10
+			down_timer.wait_time = 3
 	if Store.player_node == null:
 		Store.player_node_defined.connect(on_player_node_defined)
 	else:
@@ -105,6 +105,9 @@ func on_rival_health_updated(value: int) -> void:
 		Store.start_down_sequence = true
 		state_chart.send_event("down")
 		down_timer.start()
+		$"../../../Match Controller".on_knockout()
+		
+
 
 
 func _on_upper_block_tree_state_state_entered():
@@ -123,6 +126,13 @@ func _on_lower_block_tree_state_state_exited():
 	is_lower_blocking = false
 
 func on_down_timer_timeout() -> void:
+	state_chart.send_event("knocked")
+	await get_tree().create_timer(1).timeout
+	# TODO do an interface like stand up
+	CounterManager.limit_reached.emit("win")
+	
+	
+	return
 	if Store.perfect_down_sequence:
 		state_chart.send_event("knocked")
 	else:

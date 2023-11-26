@@ -1030,7 +1030,6 @@ texture_filter = 0
 texture = ExtResource("2_8uti0")
 hframes = 6
 vframes = 5
-frame = 1
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_kk78e")
