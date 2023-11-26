@@ -224,16 +224,16 @@ const ATTACK_TIME = 2.0
 const VARIATION = 0.2
 
 func _on_idle_tree_state_state_entered():
+	var rand = randi() % 100
+	if rand < 8:
+		state_chart.send_event("left_jab_charge")
+		return	
+		
 	defense_time = DEFENSE_TIME + randf_range(0.0, 0.2)
 	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
 	
 
-func _on_idle_tree_state_state_process(delta):
-	var rand = randi() % 5
-	if rand < 5:
-		state_chart.send_event("left_jab_charge")
-		return	
-	
+func _on_idle_tree_state_state_process(delta):	
 	defense_time -= delta
 	attack_time -= delta
 	
