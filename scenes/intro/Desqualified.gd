@@ -1,12 +1,18 @@
 extends Control
 
+var reason_set = false
+
 func _ready():
 	CounterManager.limit_reached.connect(set_reason)
 	$AnimationPlayer.animation_finished.connect(go_to_menu)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func set_reason(id):
+	if reason_set:
+		return
+	reason_set = true
 	var text
+	$ScrollContainer/Label.text = "Disqualified"
 	match id:
 		"left_jab":
 			text = "One left jab\ntoo many..."
@@ -32,7 +38,11 @@ func set_reason(id):
 			text = "We gave yout\n13 opportunities!"
 		"knockout":
 			text = "K.O."
+		"win":
+			text = "You survived...\n...for now"
+			$ScrollContainer/Label.text = "You Won!!!"
 	$ScrollContainer/Label2.text = text
+
 	$AnimationPlayer.play("new_animation")
 
 
