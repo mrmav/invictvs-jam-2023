@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk80gra2s5g3q" path="res://assets/graphics/icon.png" id="5_rvue4"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="7_evmnb"]
 [ext_resource type="PackedScene" path="res://assets/right_animated_sprite_3d.tscn" id="8_8b32r"]
-[ext_resource type="PackedScene" uid="uid://bkwb1ukfc1q3m" path="res://scenes/game/stand_up_counter.tscn" id="9_cvifk"]
+[ext_resource type="PackedScene" path="res://scenes/game/stand_up_counter.tscn" id="9_cvifk"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_205jc")

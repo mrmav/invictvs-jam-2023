@@ -4,6 +4,7 @@ extends Node3D
 
 @onready var state_chart: StateChart = $StateChart
 @onready var down_timer: Timer = $DownTimer
+@onready var idle_tree_state: AnimationTreeState = $StateChart/CompoundState/IdleTreeState
 
 var is_lower_blocking: bool = false
 var is_upper_blocking: bool = false
@@ -13,6 +14,8 @@ var prioritize_lower_defense: bool = false
 var player_is_preparing_uppercut: bool = false
 var player_is_preparing_hook: bool = false
 
+@onready var tree = $AnimationTree
+@onready var state_machine = tree.get("parameters/playback")
 
 func _physics_process(delta):
 	if last_blows_buffer.size() >= 4:
@@ -38,11 +41,15 @@ func _on_knocked_tree_state_state_entered():
 	
 
 func _ready() -> void:
+	print(state_machine.get_current_node())
 	Store.rival_node = self
+	Store.rival_health = 100
+	Store.surpassed_down_sequence.connect(on_surpassed_down_sequence)
+	idle_tree_state.state_processing.connect(_on_idle_tree_state_state_process)
 	down_timer.timeout.connect(on_down_timer_timeout)
 	match(Store.dificulty):
 		1:
-			down_timer.wait_time = 3
+			down_timer.wait_time = 10
 	if Store.player_node == null:
 		Store.player_node_defined.connect(on_player_node_defined)
 	else:
@@ -56,6 +63,9 @@ func _exit_tree():
 	Store.rival_health_updated.disconnect(on_rival_health_updated)
 	if Store.player_node.attacking.is_connected(on_player_attacking):
 		Store.player_node.attacking.disconnect(on_player_attacking)
+	if idle_tree_state.state_processing.is_connected(_on_idle_tree_state_state_process):
+		idle_tree_state.state_processing.disconnect(_on_idle_tree_state_state_process)
+
 
 func on_player_node_defined() -> void:
 	if Store.player_node_defined.is_connected(on_player_node_defined):
@@ -70,17 +80,17 @@ func on_player_attacking(attack: Enumerators.Attacks) -> void:
 	match(attack):
 		Enumerators.Attacks.LEFT_JAB, Enumerators.Attacks.RIGHT_JAB:
 			if not is_upper_blocking:
-				state_chart.send_event("hurt_by_jab")
+				state_chart.send_event("hurt_jab")
 				last_blows_buffer.append(Enumerators.Attacks.LEFT_JAB)
 				Store.rival_health -= 5
 		Enumerators.Attacks.LEFT_HOOK, Enumerators.Attacks.RIGHT_HOOK:
 			if not is_upper_blocking:
-				state_chart.send_event("hurt_by_hook")
+				state_chart.send_event("hurt_hook")
 				last_blows_buffer.append(Enumerators.Attacks.LEFT_HOOK)
 				Store.rival_health -= 10
 		Enumerators.Attacks.LEFT_UPPERCUT, Enumerators.Attacks.RIGHT_UPPERCUT:
 			if not is_lower_blocking:
-				state_chart.send_event("hurt_by_uppercut")
+				state_chart.send_event("hurt_uppercut")
 				last_blows_buffer.append(Enumerators.Attacks.LEFT_UPPERCUT)
 				Store.rival_health -= 10
 
@@ -94,6 +104,7 @@ func on_player_prepare_hook():
 
 func on_rival_health_updated(value: int) -> void:
 	if value <= 0:
+		Store.start_down_sequence = true
 		state_chart.send_event("down")
 		down_timer.start()
 
@@ -117,14 +128,17 @@ func on_down_timer_timeout() -> void:
 	if Store.perfect_down_sequence:
 		state_chart.send_event("knocked")
 	else:
-		var random_number = randi_range(0, 1)
-		if random_number == 1:
-			state_chart.send_event("revive_lower_block")
-		else:
-			state_chart.send_event("revive_upper_block")
-		match(Store.dificulty):
-			1:
-				Store.rival_health = 25
+		_failed_down_sequence()
+		
+func _failed_down_sequence() -> void:
+	state_chart.send_event("idle")
+	match(Store.dificulty):
+		1:
+			Store.rival_health = 25
+			
+func on_surpassed_down_sequence() -> void:
+	down_timer.stop()
+	_failed_down_sequence()
 
 func on_right_hook_charged() -> void:
 	state_chart.send_event("right_hook")
