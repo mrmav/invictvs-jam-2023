@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvew6aregc15w"]
+[gd_scene load_steps=18 format=3 uid="uid://dvew6aregc15w"]
 
 [ext_resource type="Script" path="res://assets/models/base/audience.gd" id="1_o6dpu"]
 [ext_resource type="Texture2D" uid="uid://bmkagb5qas0f4" path="res://assets/models/base/AD2.png" id="2_nobb2"]
 [ext_resource type="Texture2D" uid="uid://curreu27irvj4" path="res://assets/models/base/AD3.png" id="3_fgrgu"]
-[ext_resource type="Texture2D" uid="uid://bhpy2u178w83i" path="res://assets/models/base/AD5.png" id="5_3buoe"]
 [ext_resource type="Texture2D" uid="uid://f08anqh4lbkc" path="res://assets/models/base/audience_0.png" id="6_7bx3y"]
 [ext_resource type="Texture2D" uid="uid://c07pjqpjsledd" path="res://assets/models/base/Watameloh DAWG.png" id="7_0q66p"]
 [ext_resource type="Script" path="res://assets/models/base/sign.gd" id="8_s8y72"]
@@ -102,7 +101,7 @@ _data = {
 
 [node name="audience" type="Node3D"]
 script = ExtResource("1_o6dpu")
-textures_available = Array[Texture2D]([ExtResource("2_nobb2"), ExtResource("3_fgrgu"), ExtResource("5_3buoe")])
+textures_available = Array[Texture2D]([ExtResource("2_nobb2"), ExtResource("3_fgrgu")])
 
 [node name="Node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376904, 0)
