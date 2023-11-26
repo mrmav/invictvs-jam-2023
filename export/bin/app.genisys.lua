@@ -2,11 +2,12 @@ local genisys = require("genisys")
 
 local game = genisys.create_application("game")
 
-game.name = "Croccantini Game Bundle"
-game.version = "0.0.6"
+game.name = "CROCCANTINI - 13 PUNCH MAN"
+game.version = "0.9.9"
 game.fullscreen = true
-game.description = "First bundle to test monitors layout."
-game.thumbnail = genisys.get_path("thumbnail.png")
+game.description = "Croccantini game entry for the INVICTVS GAME JAM 2023."
+game.thumbnail = genisys.get_path("icon.png")
+game.cover = genisys.get_path("cover.png")
 
 local launcher = game:create_process()
 launcher.command = { genisys.get_path("launcher.x86_64"), "--rendering-driver", "opengl3"}
