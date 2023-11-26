@@ -318,6 +318,7 @@ func _on_knockout_state_entered():
 	CounterManager.reset("stand")
 	if _knockout_timer == null:
 		_knockout_timer = Timer.new()
+		_knockout_timer.one_shot = true
 		add_child(_knockout_timer)
 		_knockout_timer.wait_time = KNOCKOUT_TIME
 		_knockout_timer.timeout.connect(_on_knockdown_timeout)

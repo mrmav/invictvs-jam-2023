@@ -5,7 +5,7 @@ signal rival_node_defined(health)
 signal rival_health_updated(health)
 signal surpassed_down_sequence
 
-var max_health_rival = 270
+var max_health_rival = 170
 var dificulty: int = 1
 var perfect_down_sequence: bool = false
 var start_down_sequence: bool = false

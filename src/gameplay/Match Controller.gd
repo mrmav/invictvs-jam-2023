@@ -41,6 +41,7 @@ func _round_animation_finished(_animation):
 		return
 	if round < 13:
 		CounterManager.decrease_all()
+		Store.rival_node.state_chart.send_event("idle")
 		Store.rival_health += 30
 		round += 1
 		get_tree().paused = false

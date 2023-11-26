@@ -3,7 +3,7 @@ local genisys = require("genisys")
 local game = genisys.create_application("game")
 
 game.name = "CROCCANTINI - 13 PUNCH MAN"
-game.version = "0.9.9"
+game.version = "0.9.99"
 game.fullscreen = true
 game.description = "Croccantini game entry for the INVICTVS GAME JAM 2023."
 game.thumbnail = genisys.get_path("icon.png")

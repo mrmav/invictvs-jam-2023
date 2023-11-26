@@ -18,6 +18,7 @@ var player_is_preparing_hook: bool = false
 @onready var state_machine = tree.get("parameters/playback")
 
 func _physics_process(delta):
+	print(state_machine.get_current_node())
 	if last_blows_buffer.size() >= 4:
 		var upper_attacks: int = 0
 		var lower_attacks: int = 0
