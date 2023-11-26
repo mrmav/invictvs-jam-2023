@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=11 format=3 uid="uid://duhu0jnsn0rjp"]
 
 [ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
+[ext_resource type="Texture2D" uid="uid://cpvehm3ct5d71" path="res://assets/graphics/hp3.png" id="4_71vw4"]
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="4_b2r4r"]
 [ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="4_yafpb"]
+[ext_resource type="Texture2D" uid="uid://bm3lui48r1nof" path="res://assets/graphics/hp2.png" id="5_hd0t7"]
 [ext_resource type="PackedScene" uid="uid://s2mqhmrrqkwu" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
 [ext_resource type="AudioStream" uid="uid://dc0sdhkf07j12" path="res://assets/sound/JDB_Battleground.wav" id="7_1qleh"]
 
@@ -27,6 +29,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Gameplay Arena" parent="Game" instance=ExtResource("2_km4fr")]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Game"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = -47.0
+offset_right = -220.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_right = 10
+texture_under = ExtResource("5_hd0t7")
+texture_progress = ExtResource("4_71vw4")
 
 [node name="Timer" type="Control" parent="."]
 custom_minimum_size = Vector2(640, 360)
