@@ -28,6 +28,8 @@ func set_reason(id):
 			text = "13 equals dead!"
 		"guard":
 			text = "You are not a turtle."
+		"rounds":
+			text = "We gave yout\n13 opportunities!"
 	$ScrollContainer/Label2.text = text
 	$AnimationPlayer.play("new_animation")
 

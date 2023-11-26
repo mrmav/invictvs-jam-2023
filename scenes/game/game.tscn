@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://duhu0jnsn0rjp"]
+[gd_scene load_steps=8 format=3 uid="uid://duhu0jnsn0rjp"]
 
 [ext_resource type="Script" path="res://src/gameplay/Match Controller.gd" id="1_klbh0"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="2_4mhnq"]
 [ext_resource type="PackedScene" uid="uid://di6kpg88rdi4j" path="res://src/gameplay/Gameplay Arena.tscn" id="2_km4fr"]
 [ext_resource type="PackedScene" uid="uid://bm7m3lhucxwkw" path="res://src/gameplay/Rest Time Transition.tscn" id="3_ebtwe"]
+[ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="4_b2r4r"]
 [ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="4_yafpb"]
 [ext_resource type="PackedScene" uid="uid://s2mqhmrrqkwu" path="res://scenes/intro/Desqualified.tscn" id="6_7gjqt"]
 
 [node name="Game" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("2_4mhnq")
@@ -16,6 +18,7 @@ script = ExtResource("2_4mhnq")
 script = ExtResource("1_klbh0")
 
 [node name="Game" type="Control" parent="."]
+process_mode = 1
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
@@ -23,6 +26,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Gameplay Arena" parent="Game" instance=ExtResource("2_km4fr")]
+
+[node name="Timer" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="Timer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("4_b2r4r")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "13.00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Status" parent="." instance=ExtResource("4_yafpb")]
 
