@@ -2,8 +2,9 @@ extends Node
 
 
 @onready var rest_time_animation = $"../Rest Time Transition/AnimationPlayer"
+@onready var game  = $"../Game"
 
-var round = 1
+var round = 0
 var round_timer = null
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,13 @@ func _ready():
 	round_timer.start()
 	
 	rest_time_animation.animation_finished.connect(_round_animation_finished)
+	_on_round_timeout()
+
 
 func _on_round_timeout():
 	rest_time_animation.play("Transition")
+	game.set_process(false)
+	$"../Rest Time Transition/Label".text = "Round " + str(round + 1)
 	
 	
 
@@ -26,6 +31,7 @@ func _round_animation_finished(_animation):
 	if round < 13:
 		CounterManager.decrease_all()
 		round += 1
+		game.set_process(true)
 	else:
 		print("Game Over")
 

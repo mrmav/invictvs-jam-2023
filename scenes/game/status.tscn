@@ -12,6 +12,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_colt8"]
 bg_color = Color(1, 0.780392, 0.360784, 1)
+border_width_left = 3
+border_width_top = 1
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.827451, 0.352941, 0.376471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="Animation" id="Animation_iecbs"]
 resource_name = "update"
@@ -48,6 +57,11 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xw1p"]
 bg_color = Color(1, 0.780392, 0.360784, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.827451, 0.352941, 0.376471, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -59,6 +73,11 @@ expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60e87"]
 bg_color = Color(1, 0.780392, 0.360784, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.352941, 0.376471, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -110,6 +129,8 @@ alignment = 1
 texture_filter = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("2_r1ixe")
 theme_override_font_sizes/font_size = 25
 text = "Action Counters"
@@ -128,6 +149,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("3_n8oex")
 stretch_mode = 4
@@ -135,6 +157,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -152,6 +177,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab2"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("1_t3xcr")
 stretch_mode = 4
@@ -159,6 +185,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab2"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -176,6 +205,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab3"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("5_a8edu")
 stretch_mode = 4
@@ -183,6 +213,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab3"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -201,6 +234,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab4"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("1_t3xcr")
 stretch_mode = 4
@@ -208,6 +242,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab4"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -226,6 +263,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab5"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("3_n8oex")
 stretch_mode = 4
@@ -233,6 +271,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab5"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -250,6 +291,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab6"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("4_yb7u2")
 stretch_mode = 4
@@ -257,6 +299,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab6"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -274,6 +319,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab7"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("1_5oj0r")
 stretch_mode = 4
@@ -281,6 +327,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab7"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -298,6 +347,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab8"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("5_wd2of")
 stretch_mode = 4
@@ -305,6 +355,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab8"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -323,6 +376,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab9"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("1_5oj0r")
 stretch_mode = 4
@@ -330,6 +384,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab9"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -348,6 +405,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab10"]
 texture_filter = 1
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("4_yb7u2")
 stretch_mode = 4
@@ -355,6 +413,9 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer/GridContainer/Left Jab10"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 25
 text = "13
 "
 
@@ -367,11 +428,13 @@ counter = "right_hook"
 
 [node name="Label2" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/HBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 text = "note: don't reach 13."
 horizontal_alignment = 2
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 texture_filter = 1
@@ -386,6 +449,10 @@ vertical_alignment = 1
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer2/Buttons"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="VBoxContainer2/Buttons"]
 layout_mode = 2
@@ -788,6 +855,10 @@ text = "Stand or
 Finish"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer2/Buttons"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
