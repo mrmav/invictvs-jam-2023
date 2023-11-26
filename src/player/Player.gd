@@ -112,7 +112,7 @@ func _input(event):
 		_state_chart.send_event("enter_guard")
 	
 	if Utils.is_action_just_released(event, "guard"):
-		_state_chart.send_event("leave_guard")
+		_state_chart.send_event("recover")
 
 	
 func light_hit():
@@ -147,8 +147,8 @@ func _attack_finished(is_right_hand):
 func _on_idle_state_entered(is_right_hand):
 	var hand = _get_hand(is_right_hand)
 	
-	_animation_sprites_right.play("idle")
-	_animation_sprites_left.play("idle")
+	var sprites = _animation_sprites_right if is_right_hand else _animation_sprites_left
+	sprites.play("idle")
 	_animation_player.play("idle")
 	
 
