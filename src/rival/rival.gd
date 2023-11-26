@@ -40,7 +40,7 @@ func _on_knocked_tree_state_state_entered():
 
 func _ready() -> void:
 	Store.rival_node = self
-	Store.rival_health = 300
+	Store.rival_health = Store.max_health_rival
 	Store.surpassed_down_sequence.connect(on_surpassed_down_sequence)
 	idle_tree_state.state_entered.connect(_on_idle_tree_state_state_entered)
 	idle_tree_state.state_processing.connect(_on_idle_tree_state_state_process)
