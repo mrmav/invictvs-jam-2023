@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctl6ovoi6joer"]
+[gd_scene load_steps=11 format=3 uid="uid://ctl6ovoi6joer"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_24ljb"]
 [ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_atodh"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="2_df846"]
+[ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="3_3tnek"]
+[ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="4_qrlt1"]
+[ext_resource type="Texture2D" uid="uid://mre4rxsabgjf" path="res://assets/graphics/T_Player_Hook.png" id="5_4h0ed"]
+[ext_resource type="Texture2D" uid="uid://dg8go1x44wp4j" path="res://assets/graphics/T_Player_UpperCut.png" id="6_jxjcq"]
+[ext_resource type="Texture2D" uid="uid://cfhfrtjtl0021" path="res://assets/graphics/T_Player_Block.png" id="7_ipc6j"]
+[ext_resource type="Texture2D" uid="uid://cy7p7od2dga5x" path="res://assets/graphics/T_Player_Idle.png" id="8_y1tav"]
+[ext_resource type="Texture2D" uid="uid://67x8aosx2sdd" path="res://assets/graphics/T_Bot.png" id="9_qly1p"]
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -27,14 +34,368 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.505882, 0.243137, 0.462745, 1)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Standby/ColorRect"]
+[node name="Status" parent="Standby/ColorRect" instance=ExtResource("3_3tnek")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -185.0
+offset_right = 480.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" type="Control" parent="Standby/ColorRect"]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 170.0
+
+[node name="ColorRect" type="ColorRect" parent="Standby/ColorRect/Player"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.372549, 0.231373, 0.462745, 1)
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "Player Moves"
+horizontal_alignment = 1
+
+[node name="Control" type="MarginContainer" parent="Standby/ColorRect/Player/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(-77, -4)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("4_qrlt1")
+centered = false
+hframes = 6
+frame = 2
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Jab"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(-73, -1)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("5_4h0ed")
+centered = false
+hframes = 6
+frame = 3
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "Hook"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer3"]
+position = Vector2(-60, 1)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("6_jxjcq")
+centered = false
+hframes = 7
+frame = 3
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer3"]
+texture_filter = 1
+layout_mode = 2
+text = "Uppercut"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer"]
+position = Vector2(70, 0)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("7_ipc6j")
+centered = false
+hframes = 5
+frame = 4
+
+[node name="Node2D2" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer"]
+position = Vector2(108, 0)
+scale = Vector2(-0.445, 0.422)
+texture = ExtResource("7_ipc6j")
+centered = false
+hframes = 5
+frame = 4
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Block"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+position = Vector2(53, 1)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("8_y1tav")
+centered = false
+hframes = 4
+frame = 3
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "Idle
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Standby/ColorRect/Player/ColorRect/Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Rival" type="Control" parent="Standby/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -310.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 170.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="Standby/ColorRect/Rival"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.352941, 0.239216, 0.45098, 1)
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "Rival Moves"
+horizontal_alignment = 1
+
+[node name="Control" type="MarginContainer" parent="Standby/ColorRect/Rival/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Node2D" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(-23, -8)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 10
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Jab"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "Hook"
+horizontal_alignment = 1
+
+[node name="Node2D2" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(-27, -16)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Uppercut"
+horizontal_alignment = 1
+
+[node name="Node2D3" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer"]
+position = Vector2(-27, -7)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 19
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "Hit"
+horizontal_alignment = 1
+
+[node name="Node2D3" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+position = Vector2(-7, -17)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 23
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Block"
+horizontal_alignment = 1
+
+[node name="Node2D3" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3/HBoxContainer"]
+position = Vector2(-27, -7)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+text = "Knocked
+"
+horizontal_alignment = 1
+
+[node name="Node2D3" type="Sprite2D" parent="Standby/ColorRect/Rival/ColorRect/Control/HBoxContainer/VBoxContainer3/HBoxContainer2"]
+position = Vector2(-31, -16)
+scale = Vector2(0.445312, 0.421875)
+texture = ExtResource("9_qly1p")
+centered = false
+hframes = 6
+vframes = 5
+frame = 27
 
 [node name="Enter" type="Control" parent="."]
 custom_minimum_size = Vector2(540, 360)
