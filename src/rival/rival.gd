@@ -37,7 +37,6 @@ func _ready() -> void:
 	match(Store.dificulty):
 		1:
 			down_timer.wait_time = 3
-			
 	if Store.player_node == null:
 		Store.player_node_defined.connect(on_player_node_defined)
 	else:
@@ -108,3 +107,54 @@ func on_down_timer_timeout() -> void:
 		match(Store.dificulty):
 			1:
 				Store.rival_health = 25
+
+func on_right_hook_charged() -> void:
+	state_chart.send_event("right_hook")
+	
+func on_left_hook_charged() -> void:
+	state_chart.send_event("left_hook")
+
+func on_right_jab_charged() -> void:
+	state_chart.send_event("right_jab")
+
+func on_left_jab_charged() -> void:
+	state_chart.send_event("left_jab")
+	
+func on_right_uppercut_charged() -> void:
+	state_chart.send_event("right_uppercut")
+
+func on_left_uppercut_charged() -> void:
+	state_chart.send_event("left_uppercut")
+
+func on_upper_block_hit() -> void:
+	if is_upper_blocking:
+		state_chart.send_event("upper_block")
+	else:
+		state_chart.send_event("idle")
+	
+func on_lower_block_hit() -> void:
+	if is_lower_blocking:
+		state_chart.send_event("lower_block")
+	else:
+		state_chart.send_event("idle")
+
+func on_hit() -> void:
+	state_chart.send_event("idle")
+
+func on_right_hook() -> void:
+	state_chart.send_event("idle")
+
+func on_left_hook() -> void:
+	state_chart.send_event("idle")
+
+func on_right_jab() -> void:
+	state_chart.send_event("idle")
+
+func on_left_jab() -> void:
+	state_chart.send_event("idle")
+
+func on_right_uppercut() -> void:
+	state_chart.send_event("idle")
+
+func on_left_uppercut() -> void:
+	state_chart.send_event("idle")
