@@ -309,16 +309,18 @@ func _on_guard_state_exited(delta):
 # Knockdown
 #----------------------------------------
 var _knockout_timer
+const KNOCKOUT_TIME = 4.0
 
 func _on_knockout_state_entered():
 	CounterManager.reset("stand")
 	if _knockout_timer == null:
 		_knockout_timer = Timer.new()
 		add_child(_knockout_timer)
-		_knockout_timer.wait_time = 3
+		_knockout_timer.wait_time = KNOCKOUT_TIME
 		_knockout_timer.timeout.connect(_on_knockdown_timeout)
 	_knockout_timer.start()
 	_stand_up_counter.visible = true
+	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 	
 	_animation_player.play("hurt")
 	
@@ -330,6 +332,8 @@ func _on_knockout_state_input(event):
 func _on_knockdown_timeout():
 	if CounterManager._counters.stand == 12:
 		_state_chart.send_event("recover")
+		_stand_up_counter.visible = false
+		
 	elif CounterManager._counters.stand < 12:
-		CounterManager.increase("stand", 13 - CounterManager._counters.stand)
+		CounterManager.limit_reached.emit("knockout")
 
