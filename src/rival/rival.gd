@@ -172,6 +172,7 @@ func on_lower_block_hit() -> void:
 
 func on_hit() -> void:
 	state_chart.send_event("idle")
+	LEDPatternTriggerer.trigger("crocc_giv_dmg")
 
 func on_right_hook() -> void:
 	state_chart.send_event("idle")

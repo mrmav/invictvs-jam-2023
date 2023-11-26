@@ -108,5 +108,6 @@ text = "Press GAME RULES for tutorial"
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tbxik")
+volume_db = -4.0
 
 [connection signal="timeout" from="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label/Timer" to="Enter" method="_on_timer_timeout"]
