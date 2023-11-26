@@ -2,35 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_f1vlm"]
 
-[sub_resource type="Animation" id="Animation_3528h"]
-resource_name = "new_animation"
-length = 13.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScrollContainer/Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 11, 13),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(75, 360), Vector2(75, -273), Vector2(75, -246)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ScrollContainer/Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 12, 13),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_x0kks"]
 length = 0.001
 tracks/0/type = "value"
@@ -56,6 +27,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3528h"]
+resource_name = "new_animation"
+length = 13.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.5, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(75, 360), Vector2(75, -193.875), Vector2(75, -193.875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.3, 13),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xo3mv"]
@@ -101,17 +101,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 360.0
 offset_right = -138.0
-offset_bottom = 360.0
+offset_bottom = 359.995
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
-text = "In a dystopian future dominated by the ruthless AI, humanity is enslaved and forced to participate in a twisted game called the \"13 Rounds\".
+text = "In a dystopian future dominated by the ruthless AI, step into the last battleground ruled by humanity... hand-to-hand combat. YOU are the chosen one to fight against relentless AI. 
+There's a catch, AI manipulated the rules to their advantage – Humans only get 12 attempts per move before disqualification.
 
-
-In this game, human participants, colloquially called the 13 Punch Men must engage in a boxing-like competition against powerfull android, with the caveat that no action can be repeated more than 13 times.
-
-
-The gates open to the next partipant..."
+Can you outsmart the machine and prove that human grit still triumphs in something?
+Each round you get one more attempt per move. Avoid the (un)lucky 13! (please)"
 horizontal_alignment = 1
 autowrap_mode = 2
 
