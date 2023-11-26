@@ -1,7 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkwb1ukfc1q3m"]
+[gd_scene load_steps=13 format=3 uid="uid://bkwb1ukfc1q3m"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_n5swl"]
 [ext_resource type="Script" path="res://scenes/game/Counter Updater.gd" id="2_suc6q"]
+
+[sub_resource type="Gradient" id="Gradient_d7lvs"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6t1n5"]
+gradient = SubResource("Gradient_d7lvs")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_a8hna"]
 interpolation_color_space = 1
@@ -110,6 +118,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 638.0
 offset_bottom = 360.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6t1n5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

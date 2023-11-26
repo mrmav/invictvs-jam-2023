@@ -53,6 +53,8 @@ func _process(delta):
 
 func on_knockout():
 	round_timer.paused = true
+	timer_label.visible = false
 
 func on_recover():
 	round_timer.paused = false
+	timer_label.visible = true
