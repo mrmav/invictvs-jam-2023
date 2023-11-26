@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbaqnsojda3bc"]
+[gd_scene load_steps=5 format=3 uid="uid://dbaqnsojda3bc"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_f1vlm"]
 
@@ -9,18 +9,58 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ScrollContainer/VBoxContainer:position")
+tracks/0/path = NodePath("ScrollContainer/Label:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 11, 12, 13),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 11, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(120, 2.08165e-12), Vector2(120, -790), Vector2(120, -790), Vector2(120, -862)]
+"values": [Vector2(0, 360), Vector2(0, -246), Vector2(0, -246)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12, 13),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x0kks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScrollContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScrollContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xo3mv"]
 _data = {
+"RESET": SubResource("Animation_x0kks"),
 "new_animation": SubResource("Animation_3528h")
 }
 
@@ -54,25 +94,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.396078, 0.223529, 0.478431, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="Label" type="Label" parent="ScrollContainer"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_right = 200.0
-offset_bottom = 1208.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 360.0
+offset_bottom = 359.98
 grow_horizontal = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 360)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "In a dystopian future dominated by the ruthless AI, humanity is enslaved and forced to participate in a twisted game called the \"13 Rounds\".
 
@@ -80,13 +110,9 @@ text = "In a dystopian future dominated by the ruthless AI, humanity is enslaved
 In this game, human participants, colloquially called the 13 Punch Men must engage in a boxing-like competition against powerfull android, with the caveat that no action can be repeated more than 13 times.
 
 
-The gates open to next partipant..."
+The gates open to the next partipant..."
 horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 360)
-layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
