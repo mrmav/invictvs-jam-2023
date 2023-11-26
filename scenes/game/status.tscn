@@ -477,8 +477,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer7/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Stand or
-Finish"
+text = "Recover"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -851,8 +850,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer6/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Stand or
-Finish"
+text = "Recover"
 horizontal_alignment = 1
 vertical_alignment = 1
 
