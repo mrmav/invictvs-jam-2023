@@ -22,11 +22,11 @@ buses/default_bus_layout="res://new_audio_bus_layout.tres"
 
 [autoload]
 
+Store="*res://src/store/store.tscn"
 CounterManager="*res://src/counter_system/CounterManager.gd"
 Websocket="*res://src/web_socket/websocket.gd"
 SceneLoader="*res://src/scene_loader/scene_loader.tscn"
 LedController="*res://src/web_socket/led_controller.gd"
-Store="*res://src/store/store.tscn"
 
 [display]
 

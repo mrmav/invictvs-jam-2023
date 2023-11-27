@@ -69,7 +69,7 @@ func _ready():
 
 func _input(event):
 	
-	emit_signal("gave_damage")
+	
 	
 	# LEFT HAND CONTROLS
 	if Utils.is_action_just_pressed(event, "left_jab"):
@@ -129,10 +129,10 @@ func strong_hit():
 	_state_chart.send_event("knockout")
 	_animation_player.play("hurt")
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
+	emit_signal("received_damage")
 
 func _lose(id:String):
 	_state_chart.send_event("lose")
-	print(id)
 
 #----------------------------------------
 # Combat (Hands)
@@ -295,7 +295,6 @@ func _on_stunned_timeout():
 #----------------------------------------
 
 func _on_guard_state_entered():
-	print("guard")
 	_animation_sprites_left.play("guard")
 	_animation_sprites_right.play("guard")
 
@@ -327,10 +326,11 @@ func _on_knockout_state_entered():
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 	
 	_animation_player.play("hurt")
+	emit_signal("received_damage")
 	
 
 func _on_knockout_state_input(event):
-	if Utils.is_action_just_released(event, "stand"):
+	if Utils.is_action_just_pressed(event, "stand"):
 		CounterManager.increase("stand")
 
 func _on_knockdown_timeout():

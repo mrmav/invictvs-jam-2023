@@ -850,7 +850,7 @@ animation = &"left_uppercut"
 animation = &"left_uppercut_charge"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1q5kt"]
-animation = &"block_down"
+animation = &"lower_block"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ipvx8"]
 animation = &"lower_blocked_hit"
@@ -1020,7 +1020,7 @@ states/upper_blocked_hit/position = Vector2(-349.533, -10.962)
 states/uppercut_hit/node = SubResource("AnimationNodeAnimation_4mrwu")
 states/uppercut_hit/position = Vector2(1159.33, 18.7562)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r3den"), "idle", "down", SubResource("AnimationNodeStateMachineTransition_q7hqv"), "down", "knocked", SubResource("AnimationNodeStateMachineTransition_gejm4"), "down", "idle", SubResource("AnimationNodeStateMachineTransition_b0643"), "idle", "right_jab_charge", SubResource("AnimationNodeStateMachineTransition_5qved"), "right_jab_charge", "right_jab", SubResource("AnimationNodeStateMachineTransition_6uvsw"), "right_jab_charge", "hit", SubResource("AnimationNodeStateMachineTransition_h0p70"), "right_jab", "hit", SubResource("AnimationNodeStateMachineTransition_hb0y0"), "idle", "left_jab_charge", SubResource("AnimationNodeStateMachineTransition_82ncg"), "left_jab_charge", "left_jab", SubResource("AnimationNodeStateMachineTransition_xdo4b"), "left_jab_charge", "hit", SubResource("AnimationNodeStateMachineTransition_e2mer"), "left_jab", "hit", SubResource("AnimationNodeStateMachineTransition_a0uh2"), "idle", "left_hook_charge", SubResource("AnimationNodeStateMachineTransition_bx8hr"), "left_hook_charge", "left_hook", SubResource("AnimationNodeStateMachineTransition_wnm2t"), "left_hook_charge", "hit", SubResource("AnimationNodeStateMachineTransition_i62rp"), "left_hook", "hit", SubResource("AnimationNodeStateMachineTransition_4n758"), "right_hook_charge", "hit", SubResource("AnimationNodeStateMachineTransition_uig6g"), "right_hook", "hit", SubResource("AnimationNodeStateMachineTransition_8od75"), "right_hook_charge", "right_hook", SubResource("AnimationNodeStateMachineTransition_ltirp"), "idle", "right_hook_charge", SubResource("AnimationNodeStateMachineTransition_ig3dw"), "idle", "left_uppercut_charge", SubResource("AnimationNodeStateMachineTransition_pgxxh"), "left_uppercut_charge", "left_uppercut", SubResource("AnimationNodeStateMachineTransition_mltki"), "left_uppercut_charge", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_fitvg"), "left_uppercut", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_c0bur"), "idle", "right_uppercut_charge", SubResource("AnimationNodeStateMachineTransition_nslhn"), "right_uppercut_charge", "right_uppercut", SubResource("AnimationNodeStateMachineTransition_d7p4a"), "right_uppercut_charge", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_mytbw"), "right_uppercut", "uppercut_hit", SubResource("AnimationNodeStateMachineTransition_ttbiy"), "left_jab", "idle", SubResource("AnimationNodeStateMachineTransition_w53eu"), "left_hook", "idle", SubResource("AnimationNodeStateMachineTransition_4ph3n"), "right_jab", "idle", SubResource("AnimationNodeStateMachineTransition_iautf"), "right_hook", "idle", SubResource("AnimationNodeStateMachineTransition_g1n7p"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_e4lfa"), "left_uppercut", "idle", SubResource("AnimationNodeStateMachineTransition_gwij4"), "right_uppercut", "idle", SubResource("AnimationNodeStateMachineTransition_ikqpf"), "uppercut_hit", "idle", SubResource("AnimationNodeStateMachineTransition_7uwhj"), "idle", "lower_block", SubResource("AnimationNodeStateMachineTransition_xxtou"), "idle", "upper_block", SubResource("AnimationNodeStateMachineTransition_ollu5"), "upper_block", "idle", SubResource("AnimationNodeStateMachineTransition_ok4et"), "lower_block", "idle", SubResource("AnimationNodeStateMachineTransition_a0q13"), "lower_block", "lower_blocked_hit", SubResource("AnimationNodeStateMachineTransition_nlq40"), "lower_blocked_hit", "lower_block", SubResource("AnimationNodeStateMachineTransition_qxlmi"), "upper_block", "upper_blocked_hit", SubResource("AnimationNodeStateMachineTransition_7gig2"), "upper_blocked_hit", "upper_block", SubResource("AnimationNodeStateMachineTransition_jr0or"), "upper_blocked_hit", "idle", SubResource("AnimationNodeStateMachineTransition_vwt64"), "lower_blocked_hit", "idle", SubResource("AnimationNodeStateMachineTransition_h6rxc")]
-graph_offset = Vector2(-444.707, -180.574)
+graph_offset = Vector2(-375.329, -548.558)
 
 [node name="Rival" type="Node3D"]
 script = ExtResource("1_2ya48")
@@ -1030,7 +1030,7 @@ texture_filter = 0
 texture = ExtResource("2_8uti0")
 hframes = 6
 vframes = 5
-frame = 2
+frame = 14
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("2_kk78e")

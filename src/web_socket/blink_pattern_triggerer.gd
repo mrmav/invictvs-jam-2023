@@ -11,4 +11,5 @@ static func get_data(group : String, id : String):
 	}
 
 static func trigger(group : String, id : String):
-	Websocket.send(get_data(group, id))
+	if Store.QUIXANT_SUPPORTED:
+		Websocket.send(get_data(group, id))
