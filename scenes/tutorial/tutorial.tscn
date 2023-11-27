@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ctl6ovoi6joer"]
 
 [ext_resource type="Theme" uid="uid://eb5goi1cm0df" path="res://scenes/main.tres" id="1_24ljb"]
-[ext_resource type="Script" path="res://scenes/intro/enter.gd" id="2_atodh"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="2_df846"]
 [ext_resource type="PackedScene" uid="uid://cuo7iqmc1wneq" path="res://scenes/game/status.tscn" id="3_3tnek"]
 [ext_resource type="Texture2D" uid="uid://crqtvld551uga" path="res://assets/graphics/T_Player_Jab.png" id="4_qrlt1"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfhfrtjtl0021" path="res://assets/graphics/T_Player_Block.png" id="7_ipc6j"]
 [ext_resource type="Texture2D" uid="uid://cy7p7od2dga5x" path="res://assets/graphics/T_Player_Idle.png" id="8_y1tav"]
 [ext_resource type="Texture2D" uid="uid://67x8aosx2sdd" path="res://assets/graphics/T_Bot.png" id="9_qly1p"]
+[ext_resource type="PackedScene" uid="uid://do6e5a0nu62bf" path="res://scenes/enter.tscn" id="10_a5jyj"]
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -397,92 +397,4 @@ hframes = 6
 vframes = 5
 frame = 27
 
-[node name="Enter" type="Control" parent="."]
-custom_minimum_size = Vector2(540, 360)
-anchors_preset = 0
-offset_top = 360.0
-offset_right = 540.0
-offset_bottom = 720.0
-script = ExtResource("2_atodh")
-
-[node name="ColorRect" type="ColorRect" parent="Enter"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.619608, 0.270588, 0.435294, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Enter/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brand" type="Control" parent="Enter/ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Brand"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Brand/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.780392, 0.360784, 1)
-theme_override_font_sizes/font_size = 52
-text = "13 PUNCH MAN"
-
-[node name="Info" type="Control" parent="Enter/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 100)
-layout_mode = 2
-
-[node name="PlayLabelContainer" type="MarginContainer" parent="Enter/ColorRect/VBoxContainer/Info"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 15.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 10
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
-text = "Press PLAY to start!"
-
-[node name="Timer" type="Timer" parent="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label"]
-wait_time = 0.5
-autostart = true
-
-[node name="TutorialLabelContainer" type="MarginContainer" parent="Enter/ColorRect/VBoxContainer/Info"]
-custom_minimum_size = Vector2(2.08165e-12, 20)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -9.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="Enter/ColorRect/VBoxContainer/Info/TutorialLabelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Enter/ColorRect/VBoxContainer/Info/TutorialLabelContainer/CenterContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
-theme_override_font_sizes/font_size = 10
-text = "Press MENU for intro"
-
-[connection signal="timeout" from="Enter/ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label/Timer" to="Enter" method="_on_timer_timeout"]
+[node name="Enter" parent="." instance=ExtResource("10_a5jyj")]

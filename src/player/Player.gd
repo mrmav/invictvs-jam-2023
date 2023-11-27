@@ -39,7 +39,7 @@ signal preparing_hook()
 signal preparing_uppercut()
 	
 var gameplay_arena
-
+var is_knocked_out = false
 
 func _ready():
 	Store.player_node = self
@@ -322,6 +322,7 @@ func _on_knockout_state_entered():
 		_knockout_timer.wait_time = KNOCKOUT_TIME
 		_knockout_timer.timeout.connect(_on_knockdown_timeout)
 	_knockout_timer.start()
+	is_knocked_out = true
 	_stand_up_counter.visible = true
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 	
@@ -339,6 +340,7 @@ func _on_knockdown_timeout():
 	if CounterManager._counters.stand == 12:
 		_state_chart.send_event("recover")
 		_stand_up_counter.visible = false
+		is_knocked_out = false
 		
 	elif CounterManager._counters.stand < 12:
 		CounterManager.limit_reached.emit("knockout")

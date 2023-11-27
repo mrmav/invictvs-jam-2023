@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://do6e5a0nu62bf"]
+
+[ext_resource type="Script" path="res://scenes/intro/enter.gd" id="1_ek2v0"]
+[ext_resource type="Script" path="res://scenes/intro/label_text_options.gd" id="2_v132g"]
+
+[node name="Enter" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 360.0
+offset_right = 540.0
+offset_bottom = 720.0
+script = ExtResource("1_ek2v0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.619608, 0.270588, 0.435294, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brand" type="Control" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/Brand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Brand/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.780392, 0.360784, 1)
+theme_override_font_sizes/font_size = 52
+text = "13 PUNCH MAN"
+
+[node name="Info" type="Control" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+
+[node name="PlayLabelContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/Info"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 15.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/Info/PlayLabelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
+theme_override_font_sizes/font_size = 32
+text = "Press SPACE to start!"
+script = ExtResource("2_v132g")
+quixant_text = "Press PLAY to start!"
+other_systems_text = "Press SPACE to start!"
+
+[node name="Timer" type="Timer" parent="ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label"]
+wait_time = 0.5
+autostart = true
+
+[node name="TutorialLabelContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/Info"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/Info/TutorialLabelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Info/TutorialLabelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.972549, 0.482353, 0.321569, 1)
+theme_override_font_sizes/font_size = 25
+text = "place holder text"
+script = ExtResource("2_v132g")
+quixant_text = "Press GAME RULES for tutorial"
+other_systems_text = "Press R for rules"
+
+[node name="Control" type="Control" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[connection signal="timeout" from="ColorRect/VBoxContainer/Info/PlayLabelContainer/CenterContainer/Label/Timer" to="." method="_on_timer_timeout"]
