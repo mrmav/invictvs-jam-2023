@@ -282,6 +282,11 @@ func _on_idle_handle_defense():
 		
 
 func _on_idle_handle_attack():
+	
+	if Store.player_node.is_knocked_out:
+		attack_time = 0
+		return
+	
 	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
 	
 	var rand = randi() % 100
