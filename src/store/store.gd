@@ -5,11 +5,14 @@ signal rival_node_defined(health)
 signal rival_health_updated(health)
 signal surpassed_down_sequence
 
+var QUIXANT_SUPPORTED = false
+
 var max_health_rival = 170
 var dificulty: int = 1
 var perfect_down_sequence: bool = false
 var start_down_sequence: bool = false
 var down_sequence: int = 0
+
 
 var player_node: Node:
 	set(value):
@@ -38,8 +41,9 @@ var rival_health: int:
 func on_hit_rival() -> void:
 	if start_down_sequence:
 		down_sequence += 1
-		if down_sequence == 12:
-			perfect_down_sequence = true
-		if down_sequence > 12:
-			perfect_down_sequence = false
-			surpassed_down_sequence.emit()
+	
+	if down_sequence == 12:
+		perfect_down_sequence = true
+	if down_sequence > 12:
+		perfect_down_sequence = false
+		surpassed_down_sequence.emit()

@@ -8,4 +8,5 @@ static func get_data(pattern : String):
 	}
 
 static func trigger(pattern : String):
-	Websocket.send(get_data(pattern))
+	if Store.QUIXANT_SUPPORTED:
+		Websocket.send(get_data(pattern))

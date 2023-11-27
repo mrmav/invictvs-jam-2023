@@ -5,6 +5,10 @@ var led_patterns = null
 
 func _ready():
 	
+	if OS.has_feature("web"):
+		queue_free()
+		return
+	
 	Websocket.connect("socket_ready", Callable(self, "_on_socket_connection"))
 	
 	blinks = preload("res://src/web_socket/blink_patterns.gd").new()
