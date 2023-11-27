@@ -21,7 +21,13 @@ func _ready():
 	
 	await get_tree().process_frame
 	player.hit_rival.connect(play_animation)
-	
+
+
+func _process(delta):
+	if Store.rival_health < 0 or Store.player_node.is_knocked_out:
+		play_animation()
+		await $AnimationPlayer.animation_finished
+
 	
 func play_animation():
 	var chance = randf()
