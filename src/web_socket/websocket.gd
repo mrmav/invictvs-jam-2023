@@ -9,6 +9,10 @@ var socket : WebSocketPeer = WebSocketPeer.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	if OS.has_feature("web"):
+		queue_free()
+		return
+	
 	#load config
 	var cfg = ConfigFile.new()
 	var err = cfg.load("res://config.cfg")

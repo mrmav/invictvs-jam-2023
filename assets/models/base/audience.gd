@@ -20,8 +20,14 @@ func _ready():
 	look_at(target, Vector3.UP, true)
 	
 	await get_tree().process_frame
-	player.gave_damage.connect(play_animation)
-	
+	player.hit_rival.connect(play_animation)
+
+
+func _process(delta):
+	if Store.rival_health < 0 or Store.player_node.is_knocked_out:
+		play_animation()
+		await $AnimationPlayer.animation_finished
+
 	
 func play_animation():
 	var chance = randf()

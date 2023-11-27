@@ -47,6 +47,9 @@ func _round_animation_finished(_animation):
 		get_tree().paused = false
 		round_timer.start()
 		rest_time_animation.play("Transition_2")
+		
+	Store.down_sequence = 0
+	Store.start_down_sequence = false
 
 
 func _process(delta):

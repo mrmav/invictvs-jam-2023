@@ -39,7 +39,7 @@ signal preparing_hook()
 signal preparing_uppercut()
 	
 var gameplay_arena
-
+var is_knocked_out = false
 
 func _ready():
 	Store.player_node = self
@@ -69,7 +69,7 @@ func _ready():
 
 func _input(event):
 	
-	emit_signal("gave_damage")
+	
 	
 	# LEFT HAND CONTROLS
 	if Utils.is_action_just_pressed(event, "left_jab"):
@@ -129,10 +129,10 @@ func strong_hit():
 	_state_chart.send_event("knockout")
 	_animation_player.play("hurt")
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
+	emit_signal("received_damage")
 
 func _lose(id:String):
 	_state_chart.send_event("lose")
-	print(id)
 
 #----------------------------------------
 # Combat (Hands)
@@ -295,7 +295,6 @@ func _on_stunned_timeout():
 #----------------------------------------
 
 func _on_guard_state_entered():
-	print("guard")
 	_animation_sprites_left.play("guard")
 	_animation_sprites_right.play("guard")
 
@@ -323,20 +322,25 @@ func _on_knockout_state_entered():
 		_knockout_timer.wait_time = KNOCKOUT_TIME
 		_knockout_timer.timeout.connect(_on_knockdown_timeout)
 	_knockout_timer.start()
+	is_knocked_out = true
 	_stand_up_counter.visible = true
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 	
+	_animation_sprites_right.play("idle")
+	_animation_sprites_left.play("idle")
 	_animation_player.play("hurt")
+	emit_signal("received_damage")
 	
 
 func _on_knockout_state_input(event):
-	if Utils.is_action_just_released(event, "stand"):
+	if Utils.is_action_just_pressed(event, "stand"):
 		CounterManager.increase("stand")
 
 func _on_knockdown_timeout():
 	if CounterManager._counters.stand == 12:
 		_state_chart.send_event("recover")
 		_stand_up_counter.visible = false
+		is_knocked_out = false
 		
 	elif CounterManager._counters.stand < 12:
 		CounterManager.limit_reached.emit("knockout")

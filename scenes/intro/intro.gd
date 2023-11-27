@@ -1,9 +1,10 @@
 extends Control
 
 func _enter_tree():
-	if not Websocket.booted:
-		await Websocket.socket_ready
-	BlinkPatternTriggerer.trigger("croccantini", "light_tower_red")
+	if not OS.has_feature("web"):
+		if not Websocket.booted:
+			await Websocket.socket_ready
+		BlinkPatternTriggerer.trigger("croccantini", "light_tower_red")
 	
 	
 func _ready():

@@ -17,8 +17,8 @@ var player_is_preparing_hook: bool = false
 @onready var tree = $AnimationTree
 @onready var state_machine = tree.get("parameters/playback")
 
+
 func _physics_process(delta):
-	print(state_machine.get_current_node())
 	if last_blows_buffer.size() >= 4:
 		var upper_attacks: int = 0
 		var lower_attacks: int = 0
@@ -282,6 +282,11 @@ func _on_idle_handle_defense():
 		
 
 func _on_idle_handle_attack():
+	
+	if Store.player_node.is_knocked_out:
+		attack_time = 0
+		return
+	
 	attack_time = ATTACK_TIME + randf_range(0.0, 0.2)
 	
 	var rand = randi() % 100
