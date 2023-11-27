@@ -24,5 +24,4 @@ func _exit_tree():
 
 func on_rival_health_updated(health: int) -> void:
 	var health_v = int(float(health) / float(Store.max_health_rival + 30) * 100)
-	prints("helath", health_v)
 	health_progress.value = health_v

@@ -325,6 +325,8 @@ func _on_knockout_state_entered():
 	_stand_up_counter.visible = true
 	LEDPatternTriggerer.trigger("crocc_rcv_dmg")
 	
+	_animation_sprites_right.play("idle")
+	_animation_sprites_left.play("idle")
 	_animation_player.play("hurt")
 	emit_signal("received_damage")
 	
