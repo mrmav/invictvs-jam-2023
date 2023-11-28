@@ -69,7 +69,8 @@ func _ready():
 
 func _input(event):
 	
-	
+	if is_knocked_out:
+		return
 	
 	# LEFT HAND CONTROLS
 	if Utils.is_action_just_pressed(event, "left_jab"):

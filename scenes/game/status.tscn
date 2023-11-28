@@ -442,7 +442,7 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r1ixe")
 theme_override_font_sizes/font_size = 25
-text = "Buttons"
+text = "Buttons (keyboard)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -477,7 +477,8 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer7/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Recover"
+text = "Recover
+(SPACE)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -585,7 +586,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Dodge"
+text = "Dodge(Q)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -609,7 +610,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer/Uppercut"]
 texture_filter = 1
 layout_mode = 2
-text = "Hook"
+text = "Hook(A)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -638,7 +639,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer2/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Jab"
+text = "Jab(W)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -663,7 +664,7 @@ expand_icon = true
 texture_filter = 1
 layout_mode = 2
 text = "Upper
-Cut"
+Cut(S)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -714,7 +715,8 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer3/Uppercut"]
 texture_filter = 1
 layout_mode = 2
-text = "Guard"
+text = "Guard
+(D or J)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -743,7 +745,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer5/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Jab"
+text = "Jab(I)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -768,7 +770,7 @@ expand_icon = true
 texture_filter = 1
 layout_mode = 2
 text = "Upper
-Cut"
+Cut(K)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -797,7 +799,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer4/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Dodge"
+text = "Dodge(O)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -821,7 +823,7 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer4/Uppercut"]
 texture_filter = 1
 layout_mode = 2
-text = "Hook"
+text = "Hook(L)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -850,7 +852,8 @@ expand_icon = true
 [node name="Label" type="Label" parent="VBoxContainer2/Buttons/VBoxContainer6/Jab"]
 texture_filter = 1
 layout_mode = 2
-text = "Recover"
+text = "Recover
+(SPACE)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

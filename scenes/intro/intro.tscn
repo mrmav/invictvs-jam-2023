@@ -24,3 +24,4 @@ layout_mode = 1
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tbxik")
 volume_db = -4.0
+autoplay = true

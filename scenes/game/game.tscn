@@ -79,4 +79,5 @@ layout_mode = 1
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_1qleh")
 volume_db = -4.0
+autoplay = true
 bus = &"THEME"

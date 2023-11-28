@@ -47,4 +47,4 @@ func set_reason(id):
 
 
 func go_to_menu(_id):
-	SceneLoader.goto_scene("res://scenes/intro/intro.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
